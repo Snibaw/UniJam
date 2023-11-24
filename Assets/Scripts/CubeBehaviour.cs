@@ -47,7 +47,7 @@ public class CubeBehaviour : MonoBehaviour
                 }
                 break;
             case "Bounce":
-                _bounceCube.enabled = true;
+                _bounceCube.isActive = true;
                 break;
             default:
                 break;

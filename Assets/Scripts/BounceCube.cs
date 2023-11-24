@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class BounceCube : MonoBehaviour
 {
-    public float bounceForce = 10f;
+    [SerializeField] private float bounceForce = 10f;
 
+    public bool isActive = false;
     private void OnCollisionEnter(Collision collision)
     {
+        if (!isActive) return;
         if (collision.gameObject.CompareTag("Player"))
         {
             Rigidbody playerRb = collision.gameObject.GetComponent<Rigidbody>();
