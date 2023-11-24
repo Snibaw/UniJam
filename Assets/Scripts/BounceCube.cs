@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BounceCube : MonoBehaviour
 {
-    public float bounceForce;
+    public float bounceForce = 10f;
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -15,11 +15,8 @@ public class BounceCube : MonoBehaviour
             // Assurez-vous que le joueur a un Rigidbody attaché
             if (playerRb != null)
             {
-                // Obtenez la normale de la collision (direction du rebond)
-                Vector3 bounceDirection = collision.contacts[0].normal;
-
-                // Appliquer une force opposée à la direction de la normale
-                playerRb.AddForce(-bounceDirection * bounceForce, ForceMode.Impulse);
+                // Appliquer une force vers le haut pour le rebondissement
+                playerRb.AddForce(Vector3.up * bounceForce, ForceMode.Impulse);
             }
         }
     }
