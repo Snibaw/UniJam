@@ -13,10 +13,14 @@ public class CubeBehaviour : MonoBehaviour
     private float cubeSize;
     [SerializeField] private bool isHit = false;
     private List<GameObject> cubeList = new List<GameObject>();
+    BounceCube _bounceCube;
+    
 
     private void Start()
     {
         cubeSize = transform.localScale.x;
+        _bounceCube = GetComponent<BounceCube>();
+        _bounceCube.enabled = false;
     }
 
     public void cubeHit(Vector3 hitPosition = new Vector3())
@@ -41,6 +45,9 @@ public class CubeBehaviour : MonoBehaviour
                     //Spawn the cubes
                     StartCoroutine(SpawnCubes(direction));
                 }
+                break;
+            case "Bounce":
+                _bounceCube.enabled = true;
                 break;
             default:
                 break;
