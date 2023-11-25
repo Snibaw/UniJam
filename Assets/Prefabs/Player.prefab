@@ -139,6 +139,10 @@ MonoBehaviour:
   - {r: 1, g: 0, b: 0, a: 1}
   - {r: 0, g: 0.031513214, b: 1, a: 1}
   - {r: 0.9867345, g: 1, b: 0, a: 1}
+  paintTypes:
+  - Bounce
+  - Ligne
+  - Gravity
   speed: 8
   sensitivity: -2
   jumpForce: 8
