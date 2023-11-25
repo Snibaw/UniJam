@@ -150,6 +150,7 @@ MonoBehaviour:
   jumpTime: 0.05
   jumpPreparationTime: 0.2
   fallGravityScale: 3
+  freezeTimer: 0
 --- !u!54 &4366314623501353626
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -174,7 +175,7 @@ Rigidbody:
   m_ImplicitTensor: 1
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 2
+  m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 1
 --- !u!65 &1134957447149150413
@@ -211,6 +212,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bounceForce: 10
+  freezeTime: 0
   isActive: 0
 --- !u!1 &9097917088370374093
 GameObject:

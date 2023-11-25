@@ -22,7 +22,7 @@ public class CubeBehaviour : MonoBehaviour
     [SerializeField] private Material[] cubeMaterials;
     
 
-    private void Start()
+    private IEnumerator Start()
     {
         _boxCollider = GetComponent<BoxCollider>();
         cubeSize = _boxCollider.size.x * transform.localScale.x;
@@ -32,6 +32,7 @@ public class CubeBehaviour : MonoBehaviour
         _gravityCube.enabled = false;
 
         timeSinceLastStateChange = minTimeBtwStateChange;
+        yield return new WaitForSeconds(1f);
         cubeHit(cubeType, bridgeCubeDirection);
     }
 
@@ -83,7 +84,7 @@ public class CubeBehaviour : MonoBehaviour
         }
     }
     
-    private IEnumerator DeleteCubes()
+    public IEnumerator DeleteCubes()
     {
         for (int i = cubeList.Count-1; i > -1; i--)
         {
@@ -112,7 +113,8 @@ public class CubeBehaviour : MonoBehaviour
     private void SpawnCube(Vector3 spawnPosition)
     {
         GameObject obj = Instantiate(cubePrefab, spawnPosition, Quaternion.identity);
-        obj.transform.parent = transform.parent;
+        obj.transform.parent = transform;
+        obj.GetComponent<LigneDeCube>().cubeParent = this;
         cubeList.Add(obj);
     }
 }
