@@ -22,7 +22,7 @@ public class CubeBehaviour : MonoBehaviour
     [SerializeField] private Material[] cubeMaterials;
     
 
-    private void Start()
+    private IEnumerator Start()
     {
         _boxCollider = GetComponent<BoxCollider>();
         cubeSize = _boxCollider.size.x * transform.localScale.x;
@@ -32,6 +32,7 @@ public class CubeBehaviour : MonoBehaviour
         _gravityCube.enabled = false;
 
         timeSinceLastStateChange = minTimeBtwStateChange;
+        yield return new WaitForSeconds(1f);
         cubeHit(cubeType, bridgeCubeDirection);
     }
 
