@@ -14,11 +14,13 @@ public class CubeBehaviour : MonoBehaviour
     [SerializeField] private bool isHit = false;
     private List<GameObject> cubeList = new List<GameObject>();
     BounceCube _bounceCube;
+    BoxCollider _boxCollider;
     
 
     private void Start()
     {
-        cubeSize = transform.localScale.x;
+        _boxCollider = GetComponent<BoxCollider>();
+        cubeSize = _boxCollider.size.x * transform.localScale.x;
         _bounceCube = GetComponent<BounceCube>();
         _bounceCube.enabled = false;
     }
@@ -41,7 +43,7 @@ public class CubeBehaviour : MonoBehaviour
                 if (Physics.Raycast(hitPosition, transform.position - hitPosition, out hit))
                 {
                     Vector3 direction = hit.normal;
-                    
+                    Debug.Log("SpawnCubes");
                     //Spawn the cubes
                     StartCoroutine(SpawnCubes(direction));
                 }
@@ -57,7 +59,7 @@ public class CubeBehaviour : MonoBehaviour
     {
         for (int i = cubeList.Count-1; i > -1; i--)
         {
-            yield return new WaitForSeconds(timeBtwSpawn/5f*i);
+            yield return new WaitForSeconds(timeBtwSpawn/3f*i);
             Destroy(cubeList[i]);
         }
         cubeList.Clear();

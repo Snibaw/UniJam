@@ -15,10 +15,10 @@ public class PlayerMovement : MonoBehaviour
     private float bulletReloadTimer = 0f;
     public GameObject canon;
     public GameObject bulletPrefab;
+
     [Header("Player Movement")]
     public float speed = 5f;
     public float sensitivity;
-    private Vector3 rotate;
 
     public Rigidbody rb;
     public Collider playerCollider;
