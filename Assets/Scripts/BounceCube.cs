@@ -20,10 +20,10 @@ public class BounceCube : MonoBehaviour
             if (playerMove != null)
             {
                 // Bounce vers le haut
-                Vector3 bounceDirection = Vector3.up;
+                Vector3 bounceDirection = -Physics.gravity;
 
-                // Appliquer une force opposée à la direction de la normale
-                playerRb.AddForce(bounceDirection * bounceForce, ForceMode.Impulse);
+                // Appliquer une force opposée à la gravité
+                playerRb.AddForce(bounceDirection.normalized * bounceForce, ForceMode.Impulse);
 
                 playerMove.freezeTimer=freezeTime;
 

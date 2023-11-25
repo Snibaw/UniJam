@@ -222,7 +222,6 @@ GameObject:
   - component: {fileID: 1560651126609981670}
   - component: {fileID: 4366314623501353626}
   - component: {fileID: 1134957447149150413}
-  - component: {fileID: 6538082197015929441}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -317,6 +316,7 @@ MonoBehaviour:
   - {r: 1, g: 0, b: 0, a: 1}
   - {r: 0, g: 0.031513214, b: 1, a: 1}
   - {r: 0.9867345, g: 1, b: 0, a: 1}
+  - {r: 1, g: 1, b: 1, a: 1}
   paintTypes:
   - Bounce
   - Ligne
@@ -340,7 +340,7 @@ Rigidbody:
   m_GameObject: {fileID: 6826447606220805469}
   serializedVersion: 4
   m_Mass: 5
-  m_Drag: 0
+  m_Drag: 5
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
@@ -365,7 +365,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6826447606220805469}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 8ab6f71d8e9b23e469548399b19a51e8, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0

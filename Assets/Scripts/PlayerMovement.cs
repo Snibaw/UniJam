@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Experimental.GlobalIllumination;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using static UnityEngine.Rendering.DebugUI;
@@ -71,6 +72,8 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Fall();
+        
         RotateThePlayer();
         if (freezeTimer > 0)
         {
@@ -136,6 +139,11 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    private void Fall()
+    {
+        rb.AddForce(Physics.gravity * fallGravityScale, ForceMode.Acceleration);
+    }
+    
     private int FindNextColor()
     {
         currentColor++;
@@ -218,19 +226,19 @@ public class PlayerMovement : MonoBehaviour
         xRotation = Input.GetAxis("Mouse Y");
         ChangeViewDependingOnGravity();
 
-        Vector3 rotation = new Vector3(xRotation, yRotation * sensitivity, 0f);
+        Vector3 rotation = new Vector3(xRotation, -yRotation , 0f);
     
         if (Physics.gravity.y!=0)
         {
-            rotation = new Vector3(xRotation, yRotation * sensitivity, 0f);
+            rotation = new Vector3(xRotation, -yRotation, 0f);
         }
         else if (Physics.gravity.x>0)
         {
-            rotation = new Vector3(-yRotation * sensitivity, xRotation, 0f);
+            rotation = new Vector3(yRotation, xRotation, 0f);
         }
         else if (Physics.gravity.x<0)
         {
-            rotation = new Vector3(yRotation * sensitivity, -xRotation, 0f);
+            rotation = new Vector3(-yRotation, -xRotation, 0f);
         }
 
         

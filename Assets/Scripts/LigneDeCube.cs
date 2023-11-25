@@ -12,7 +12,7 @@ public class LigneDeCube : MonoBehaviour
         GetComponent<MeshRenderer>().material = cubeMaterial;
     }
 
-    void DeleteCubeFromChild()
+    public void DeleteCubeFromChild()
     {
         StartCoroutine(cubeParent.DeleteCubes());
     }
