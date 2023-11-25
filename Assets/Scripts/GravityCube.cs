@@ -8,7 +8,7 @@ public class GravityCube : MonoBehaviour
     public int cubeMode;
     private GameObject player;
     public AnimationCurve rotationCurve = AnimationCurve.EaseInOut(0f, 0f, 1f, 1f); // Courbe d'animation par défaut
-    public float rotationDuration = 1f; // Durée totale de la rotation
+    public float rotationDuration; // Durée totale de la rotation
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -28,14 +28,14 @@ public class GravityCube : MonoBehaviour
             
             if (cubeMode==0)
             {
-                Quaternion targetRotation = Quaternion.Euler(transform.rotation.x, transform.rotation.y, 180f);
+                Quaternion targetRotation = Quaternion.Euler(transform.rotation.x-50, transform.rotation.y, 180f);
                 Physics.gravity = new Vector3(0, 10.0F, 0);
                 StartCoroutine(SmoothRotate(collision.gameObject.GetComponent<PlayerMovement>().camera.transform, targetRotation, rotationDuration));
             }
             else if (cubeMode==1)
             {
                 Physics.gravity = new Vector3(0, -10.0F, 0);
-                Quaternion targetRotation = Quaternion.Euler(transform.rotation.x, transform.rotation.y, 0f);
+                Quaternion targetRotation = Quaternion.Euler(transform.rotation.x+50, transform.rotation.y, 0f);
                 StartCoroutine(SmoothRotate(collision.gameObject.GetComponent<PlayerMovement>().camera.transform, targetRotation, rotationDuration));
             }
             else if (cubeMode==2)

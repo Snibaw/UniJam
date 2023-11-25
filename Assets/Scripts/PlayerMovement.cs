@@ -17,7 +17,7 @@ public class PlayerMovement : MonoBehaviour
     public ParticleSystem paintParticles;
     public List<Color> paintColors;
     public List<string> paintTypes;
-    public int currentColor = 0;
+    public int currentColor;
 
     public bool[] enabledColor;
     [SerializeField] private UIPaint uiPaint;
@@ -25,7 +25,7 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Player Movement")]
     public float speed = 5f;
-
+    public float sensibility;
     private Rigidbody rb;
     private Collider playerCollider;
     public float jumpForce; // Force initiale du saut
@@ -57,7 +57,9 @@ public class PlayerMovement : MonoBehaviour
 
     private void Awake()
     {
-        enabledColor = new bool[] { true, true, true, true };
+        enabledColor = new bool[] { false, false, false, true };
+
+        currentColor = FindNextColor();
 
         // Init the color of the paint to the first color in the list
         paintParticles.GetComponent<ParticleSystemRenderer>().sharedMaterial.color = paintColors[currentColor];
@@ -144,7 +146,7 @@ public class PlayerMovement : MonoBehaviour
         rb.AddForce(Physics.gravity * fallGravityScale, ForceMode.Acceleration);
     }
     
-    private int FindNextColor()
+    public int FindNextColor()
     {
         currentColor++;
 
@@ -215,15 +217,12 @@ public class PlayerMovement : MonoBehaviour
             move = Quaternion.Euler(0f, yRotation, 0f) * new Vector3(0f, x, z);
         }
         
-
-        float currentSpeed = Input.GetKey(KeyCode.LeftShift) ? speed * 1.5f : speed;
-
-        transform.Translate(move.normalized * currentSpeed * Time.deltaTime, Space.World);
+        transform.Translate(move.normalized * speed * Time.deltaTime, Space.World);
     }
     void RotateThePlayer()
     {
-        yRotation = Input.GetAxis("Mouse X");
-        xRotation = Input.GetAxis("Mouse Y");
+        yRotation = Input.GetAxis("Mouse X")* sensibility;
+        xRotation = Input.GetAxis("Mouse Y")* sensibility;
         ChangeViewDependingOnGravity();
 
         Vector3 rotation = new Vector3(xRotation, -yRotation , 0f);
@@ -258,7 +257,7 @@ public class PlayerMovement : MonoBehaviour
     void StopShooting()     {         
         paintParticles.Stop();     
         }          
-    void ChangeColor()     {         
+    public void ChangeColor()     {         
         currentColor = FindNextColor();
         
         paintParticles.GetComponent<ParticleSystemRenderer>().sharedMaterial.color = paintColors[currentColor];         

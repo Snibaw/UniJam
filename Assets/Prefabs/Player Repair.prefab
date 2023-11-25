@@ -119,6 +119,16 @@ PrefabInstance:
       objectReference: {fileID: 6017648540706896533}
     - target: {fileID: 1560651126609981670, guid: a47017d698443ae4f9a4ac0909f83560,
         type: 3}
+      propertyPath: jumpForce
+      value: 48
+      objectReference: {fileID: 0}
+    - target: {fileID: 1560651126609981670, guid: a47017d698443ae4f9a4ac0909f83560,
+        type: 3}
+      propertyPath: sensibility
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1560651126609981670, guid: a47017d698443ae4f9a4ac0909f83560,
+        type: 3}
       propertyPath: fallGravityScale
       value: 2
       objectReference: {fileID: 0}
@@ -287,6 +297,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4366314623501353626, guid: a47017d698443ae4f9a4ac0909f83560,
+        type: 3}
+      propertyPath: m_Mass
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 4438279548662932902, guid: a47017d698443ae4f9a4ac0909f83560,
         type: 3}
       propertyPath: m_Name
@@ -432,8 +447,7 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 7
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 6538082197015929441, guid: a47017d698443ae4f9a4ac0909f83560, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 7386882666865263741, guid: a47017d698443ae4f9a4ac0909f83560,
@@ -546,7 +560,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
