@@ -15,6 +15,7 @@ public class CubeBehaviour : MonoBehaviour
     private float cubeSize;
     private List<GameObject> cubeList = new List<GameObject>();
     BounceCube _bounceCube;
+    GravityCube _gravityCube;
     BoxCollider _boxCollider;
     [SerializeField] private float minTimeBtwStateChange = 0.2f;
     float timeSinceLastStateChange = 0f;
@@ -27,6 +28,8 @@ public class CubeBehaviour : MonoBehaviour
         cubeSize = _boxCollider.size.x * transform.localScale.x;
         _bounceCube = GetComponent<BounceCube>();
         _bounceCube.enabled = false;
+        _gravityCube = GetComponent<GravityCube>();
+        _gravityCube.enabled = false;
 
         timeSinceLastStateChange = minTimeBtwStateChange;
         cubeHit(cubeType, bridgeCubeDirection);
@@ -45,6 +48,7 @@ public class CubeBehaviour : MonoBehaviour
         cubeType = _cubeType;
         if (cubeType != "Ligne") StartCoroutine(DeleteCubes());
         if(cubeType != "Bounce") _bounceCube.isActive = false;
+        if(cubeType != "Gravity") _gravityCube.isActive = false;
         
         switch (cubeType)
         {
@@ -71,6 +75,7 @@ public class CubeBehaviour : MonoBehaviour
                 break;
             case "Gravity":
                 GetComponent<MeshRenderer>().material = cubeMaterials[2];
+                _gravityCube.isActive = true;
                 break;
             default:
                 break;
