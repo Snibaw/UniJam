@@ -9,15 +9,13 @@ public class PlayerMovement : MonoBehaviour
     public bool canShoot = true;
     
 
-    [Header("Bullet")]
-
-    public float bulletReloadTime = 0.5f;
-    private float bulletReloadTimer = 0f;
-    public GameObject canon;
-    public GameObject bulletPrefab;
+    [Header("Shooting")]
+    public ParticleSystem paintParticles;
+    public List<Color> paintColors;
+    private int currentColor = 0;
     [Header("Player Movement")]
     public float speed = 5f;
-    public float sensitivity;
+    public float sensitivity = -1f;
     private Vector3 rotate;
 
     public Rigidbody rb;
@@ -29,7 +27,7 @@ public class PlayerMovement : MonoBehaviour
     private float jumpPreparationTimer; // Temps d'avance pour le saut
 
     private bool isJumping = false; // Indicateur pour savoir si le joueur est en train de sauter
-    public float fallGravityScale; // Gravité appliquée pendant la chute
+    public float fallGravityScale; // Gravitï¿½ appliquï¿½e pendant la chute
 
     // Start is called before the first frame update
     void Start()
@@ -41,20 +39,21 @@ public class PlayerMovement : MonoBehaviour
         jumpTimeCounter = jumpTime;
         jumpPreparationTimer = 0;
 
+        
+        // Init the color of the paint to the first color in the list
+        paintParticles.GetComponent<ParticleSystemRenderer>().sharedMaterial.color = paintColors[currentColor];
+        GetComponentInChildren<ParticlesController>().paintColor = paintColors[currentColor];
     }
 
     // Update is called once per frame
     void Update()
     {
-        bulletReloadTimer -= Time.deltaTime;
-
         RotateThePlayer();
         if(!canMove) return;
         MoveThePlayer();
-        if(Input.GetMouseButton(0))
+        if(Input.GetMouseButtonDown(0))
         {
-            if(bulletReloadTimer <= 0f)
-                ShootBullet();
+            StartShooting();
         }
 
         bool isGrounded = Physics.Raycast(playerCollider.bounds.center, Vector3.down, playerCollider.bounds.extents.y + 0.01f);
@@ -72,15 +71,15 @@ public class PlayerMovement : MonoBehaviour
             if (jumpPreparationTimer > 0 && !isJumping)
             {
                 print("test");
-                // Débute le saut
+                // Dï¿½bute le saut
                 isJumping = true;
-                jumpTimeCounter = jumpTime; // Réinitialise le compteur de temps à la fin du saut
+                jumpTimeCounter = jumpTime; // Rï¿½initialise le compteur de temps ï¿½ la fin du saut
                 rb.AddForce(Vector3.up * jumpForce * 3, ForceMode.Impulse);
             }
                            
         }
 
-        // Vérifie si la touche d'espace est maintenue
+        // Vï¿½rifie si la touche d'espace est maintenue
         if (jumpTimeCounter > 0)
         {
             if(isJumping && Input.GetKey(KeyCode.Space))
@@ -95,26 +94,19 @@ public class PlayerMovement : MonoBehaviour
             isJumping = false;
         }
 
-        // Applique une gravité plus forte pendant la chute
+        // Applique une gravitï¿½ plus forte pendant la chute
         if (rb.velocity.y < 3f)
         {
             rb.AddForce(Vector3.down * fallGravityScale, ForceMode.Acceleration);
+        if(Input.GetMouseButtonUp(0))
+        {
+            StopShooting();
+        }
+        if(Input.GetMouseButtonDown(1))
+        {
+            ChangeColor();
         }
     }
-    float CalculateJumpForce()
-    {
-        // Calcule la force du saut en fonction du temps écoulé
-        if (jumpTimeCounter > 0)
-        {
-            return jumpForce;
-        }
-        else
-        {
-            return 0f;
-        }
-    }
-
-
     void MoveThePlayer()
     {
         float x = Input.GetAxisRaw("Horizontal");
@@ -146,10 +138,24 @@ public class PlayerMovement : MonoBehaviour
         transform.eulerAngles = new Vector3(currentX, transform.eulerAngles.y, transform.eulerAngles.z);
         
     }
-    void ShootBullet()
+    void StartShooting()
     {
-        bulletReloadTimer = bulletReloadTime;
-        GameObject bullet = Instantiate(bulletPrefab, canon.transform.position, transform.rotation * Quaternion.Euler(90, 0, 0));
-        Destroy(bullet, 3f);
+        paintParticles.Play();
+    }
+    
+    void StopShooting()
+    {
+        paintParticles.Stop();
+    }
+    
+    void ChangeColor()
+    {
+        currentColor++;
+        if(currentColor >= paintColors.Count)
+        {
+            currentColor = 0;
+        }
+        paintParticles.GetComponent<ParticleSystemRenderer>().sharedMaterial.color = paintColors[currentColor];
+        GetComponentInChildren<ParticlesController>().paintColor = paintColors[currentColor];
     }
 }
