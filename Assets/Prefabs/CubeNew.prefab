@@ -11,17 +11,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: c62e76188de976a4e951c4afe00a3b14,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 60
+      value: 49
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c62e76188de976a4e951c4afe00a3b14,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 60
+      value: 49
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c62e76188de976a4e951c4afe00a3b14,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 60
+      value: 49
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c62e76188de976a4e951c4afe00a3b14,
         type: 3}
@@ -146,6 +146,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 7664dc2de582e6540a745ad2b63e463d, type: 2}
   - {fileID: 2100000, guid: 2c97ba3f7d727d447a85faee059f7d95, type: 2}
   - {fileID: 2100000, guid: 7e7bd47b045462d47906a479887a0def, type: 2}
+  - {fileID: 2100000, guid: cb668e822fd59824eacf79ab811891a1, type: 2}
 --- !u!65 &4823856158003887323
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -207,6 +208,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bounceForce: 60
+  freezeTime: 0
   isActive: 0
 --- !u!114 &7002170767955392772
 MonoBehaviour:
