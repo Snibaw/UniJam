@@ -139,9 +139,9 @@ MonoBehaviour:
   timeBtwSpawn: 0.01
   minTimeBtwStateChange: 0.2
   cubeMaterials:
-  - {fileID: 2100000, guid: e265aa74ef481da43ad8022ead2f17c8, type: 2}
-  - {fileID: 2100000, guid: 150720d93b55ab549a906ecf76f15d62, type: 2}
-  - {fileID: 2100000, guid: 23fc9f34f374a8043bbacd90ea28ce79, type: 2}
+  - {fileID: 2100000, guid: 7664dc2de582e6540a745ad2b63e463d, type: 2}
+  - {fileID: 2100000, guid: 2c97ba3f7d727d447a85faee059f7d95, type: 2}
+  - {fileID: 2100000, guid: 7e7bd47b045462d47906a479887a0def, type: 2}
 --- !u!65 &4823856158003887323
 BoxCollider:
   m_ObjectHideFlags: 0
