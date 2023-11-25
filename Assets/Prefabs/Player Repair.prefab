@@ -18,6 +18,21 @@ PrefabInstance:
       propertyPath: uiPaint
       value: 
       objectReference: {fileID: 6017648540706896533}
+    - target: {fileID: 1560651126609981670, guid: a47017d698443ae4f9a4ac0909f83560,
+        type: 3}
+      propertyPath: fallGravityScale
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1560651126609981670, guid: a47017d698443ae4f9a4ac0909f83560,
+        type: 3}
+      propertyPath: paintTypes.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1560651126609981670, guid: a47017d698443ae4f9a4ac0909f83560,
+        type: 3}
+      propertyPath: paintTypes.Array.data[3]
+      value: None
+      objectReference: {fileID: 0}
     - target: {fileID: 2240854069951794981, guid: a47017d698443ae4f9a4ac0909f83560,
         type: 3}
       propertyPath: m_Pivot.x
@@ -62,6 +77,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3133166471432701668, guid: a47017d698443ae4f9a4ac0909f83560,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.399
+      objectReference: {fileID: 0}
+    - target: {fileID: 3133166471432701668, guid: a47017d698443ae4f9a4ac0909f83560,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3133166471432701668, guid: a47017d698443ae4f9a4ac0909f83560,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.595
       objectReference: {fileID: 0}
     - target: {fileID: 3214995490658073249, guid: a47017d698443ae4f9a4ac0909f83560,
         type: 3}
@@ -111,17 +141,17 @@ PrefabInstance:
     - target: {fileID: 3835864007598257461, guid: a47017d698443ae4f9a4ac0909f83560,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 1.61
       objectReference: {fileID: 0}
     - target: {fileID: 3835864007598257461, guid: a47017d698443ae4f9a4ac0909f83560,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.98
+      value: 1.42
       objectReference: {fileID: 0}
     - target: {fileID: 3835864007598257461, guid: a47017d698443ae4f9a4ac0909f83560,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 1.63
       objectReference: {fileID: 0}
     - target: {fileID: 3835864007598257461, guid: a47017d698443ae4f9a4ac0909f83560,
         type: 3}
@@ -232,6 +262,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player Repair
+      objectReference: {fileID: 0}
+    - target: {fileID: 7386882666865263741, guid: a47017d698443ae4f9a4ac0909f83560,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7487772357813894510, guid: a47017d698443ae4f9a4ac0909f83560,
         type: 3}
