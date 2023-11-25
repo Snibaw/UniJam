@@ -14,7 +14,7 @@ public class LigneDeCube : MonoBehaviour
 
     public void DeleteCubeFromChild()
     {
-        StartCoroutine(cubeParent.DeleteCubes());
+        cubeParent.DeleteCubes();
     }
     
 }

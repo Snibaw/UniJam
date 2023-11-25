@@ -53,6 +53,7 @@ public class PlayerMovement : MonoBehaviour
 
         uiPaint = GetComponentInChildren<UIPaint>();
         crosshair = GetComponentInChildren<Crosshair>();
+        crosshair.ChangeCrosshair(currentColor);
 
         jumpTimeCounter = jumpTime;
         jumpPreparationTimer = 0;
@@ -64,6 +65,7 @@ public class PlayerMovement : MonoBehaviour
     private void Awake()
     {
         enabledColor = new bool[] { false, false, false, true };
+        
 
         currentColor = FindNextColor();
 

@@ -20,7 +20,6 @@ public class CubeBehaviour : MonoBehaviour
     [SerializeField] private float minTimeBtwStateChange = 0.2f;
     float timeSinceLastStateChange = 0f;
     [SerializeField] private Material[] cubeMaterials;
-    
 
     private IEnumerator Start()
     {
@@ -47,7 +46,7 @@ public class CubeBehaviour : MonoBehaviour
         if(timeSinceLastStateChange < minTimeBtwStateChange) return;
         timeSinceLastStateChange = 0f;
         cubeType = _cubeType;
-        if (cubeType != "Ligne") StartCoroutine(DeleteCubes());
+        if (cubeType != "Ligne") DeleteCubes();
         if(cubeType != "Bounce") _bounceCube.isActive = false;
         if(cubeType != "Gravity") _gravityCube.isActive = false;
         
@@ -62,7 +61,7 @@ public class CubeBehaviour : MonoBehaviour
                 GetComponent<MeshRenderer>().material = cubeMaterials[1];
                 if (cubeList.Count > 0)
                 {
-                    StartCoroutine(DeleteCubes());
+                    DeleteCubes();
                     break;
                 }
                 RaycastHit hit;
@@ -80,19 +79,18 @@ public class CubeBehaviour : MonoBehaviour
                 break;
             default:
                 GetComponent<MeshRenderer>().material = cubeMaterials[3];
-                StartCoroutine(DeleteCubes());
+                DeleteCubes();
                 _bounceCube.isActive = false;
                 _gravityCube.isActive = false;
                 break;
         }
     }
     
-    public IEnumerator DeleteCubes()
+    public void DeleteCubes()
     {
-        for (int i = cubeList.Count-1; i > -1; i--)
+        foreach (GameObject cube in cubeList)
         {
-            yield return new WaitForSeconds(timeBtwSpawn/3f*i);
-            Destroy(cubeList[i]);
+            Destroy(cube);
         }
         cubeList.Clear();
     }
