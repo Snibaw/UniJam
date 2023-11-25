@@ -31,6 +31,8 @@ public class PlayerMovement : MonoBehaviour
 
 
     private int _xModifier = 1, _yModifier = 1;
+    private float x, z;
+    private float xRotation, yRotation;
 
     // Start is called before the first frame update
     void Start()
@@ -42,7 +44,7 @@ public class PlayerMovement : MonoBehaviour
         jumpPreparationTimer = 0;
 
         rb = GetComponent<Rigidbody>();
-        playerCollider = GetComponent<Collider>();
+        playerCollider = GetComponent<BoxCollider>();
 
         
         // Init the color of the paint to the first color in the list
@@ -86,7 +88,7 @@ public class PlayerMovement : MonoBehaviour
         {
             if (jumpPreparationTimer > 0 && !isJumping)
             {
-                print("test");
+                //print("test");
                 // D�bute le saut
                 isJumping = true;
                 jumpTimeCounter = jumpTime; // R�initialise le compteur de temps � la fin du saut
@@ -109,12 +111,6 @@ public class PlayerMovement : MonoBehaviour
         {
             isJumping = false;
         }
-
-        // Applique une gravit� plus forte pendant la chute
-        if (rb.velocity.y < 3f)
-        {
-            rb.AddForce(Vector3.down * fallGravityScale, ForceMode.Acceleration);
-        }
     }
 
     float CalculateJumpForce()
@@ -129,29 +125,44 @@ public class PlayerMovement : MonoBehaviour
             return 0f;
         }
     }
-
-
-
     public void ChangeControlDependingOnGravity()
     {
-        if(Physics.gravity.y < 0)
+        if(Physics.gravity.y > 0)
         {
-            _xModifier = 1;
-            _yModifier = 1;
-        }
-        else if(Physics.gravity.y > 0)
+            x *= -1;
+        }   
+        else if(Physics.gravity.x<0)
         {
-            _xModifier = -1;
+            x*=-1;
         }
-        
+       
+    }
+    private void ChangeViewDependingOnGravity()
+    {
+        if(Physics.gravity.y > 0)
+        {
+            xRotation *= -1;
+            yRotation *= -1;
+        }
+
     }
     void MoveThePlayer()
     {
-        float x = Input.GetAxisRaw("Horizontal");
-        float z = Input.GetAxisRaw("Vertical");
+        x = Input.GetAxisRaw("Horizontal");
+        z = Input.GetAxisRaw("Vertical");
+        ChangeControlDependingOnGravity();
 
         float yRotation = transform.eulerAngles.y;
-        Vector3 move = Quaternion.Euler(0f, yRotation, 0f) * new Vector3(x, 0f, z);
+        Vector3 move;
+        if (Physics.gravity.y != 0)
+        {
+            move = Quaternion.Euler(0f, yRotation, 0f) * new Vector3(x, 0f, z);
+        }
+        else
+        {
+            move = Quaternion.Euler(0f, yRotation, 0f) * new Vector3(0f, x, z);
+        }
+        
 
         float currentSpeed = Input.GetKey(KeyCode.LeftShift) ? speed * 1.5f : speed;
 
@@ -159,10 +170,26 @@ public class PlayerMovement : MonoBehaviour
     }
     void RotateThePlayer()
     {
-        float y = Input.GetAxis("Mouse X");
-        float x = Input.GetAxis("Mouse Y");
+        yRotation = Input.GetAxis("Mouse X");
+        xRotation = Input.GetAxis("Mouse Y");
+        ChangeViewDependingOnGravity();
+
+        Vector3 rotation = new Vector3(xRotation, yRotation * sensitivity, 0f);
     
-        Vector3 rotation = new Vector3(x, y*sensitivity, 0f);
+        if (Physics.gravity.y!=0)
+        {
+            rotation = new Vector3(xRotation, yRotation * sensitivity, 0f);
+        }
+        else if (Physics.gravity.x>0)
+        {
+            rotation = new Vector3(-yRotation * sensitivity, xRotation, 0f);
+        }
+        else if (Physics.gravity.x<0)
+        {
+            rotation = new Vector3(yRotation * sensitivity, -xRotation, 0f);
+        }
+
+        
     
         transform.eulerAngles = transform.eulerAngles - rotation;
 

@@ -7,10 +7,14 @@ public class GravityTest : MonoBehaviour
     public KeyCode gravityKey0m10 = KeyCode.H;
     public KeyCode gravityKey100 = KeyCode.J;
     public KeyCode gravityKeym100 = KeyCode.K;
-    [SerializeField] private GameObject player;
+   private GameObject player;
     public AnimationCurve rotationCurve = AnimationCurve.EaseInOut(0f, 0f, 1f, 1f); // Courbe d'animation par défaut
     public float rotationDuration = 1f; // Durée totale de la rotation
 
+    void Start()
+    {
+        player = GameObject.Find("Player");
+    }
     void Update()
     {
         if (Input.GetKeyDown(gravityKey001))
