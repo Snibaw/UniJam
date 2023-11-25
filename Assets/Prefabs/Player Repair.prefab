@@ -18,6 +18,16 @@ PrefabInstance:
       propertyPath: uiPaint
       value: 
       objectReference: {fileID: 6017648540706896533}
+    - target: {fileID: 1560651126609981670, guid: a47017d698443ae4f9a4ac0909f83560,
+        type: 3}
+      propertyPath: paintTypes.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1560651126609981670, guid: a47017d698443ae4f9a4ac0909f83560,
+        type: 3}
+      propertyPath: paintTypes.Array.data[3]
+      value: None
+      objectReference: {fileID: 0}
     - target: {fileID: 2240854069951794981, guid: a47017d698443ae4f9a4ac0909f83560,
         type: 3}
       propertyPath: m_Pivot.x
