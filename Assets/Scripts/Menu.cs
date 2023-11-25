@@ -19,7 +19,7 @@ public class Menu : MonoBehaviour
     public void StartGame()
     {
         // Charge la scène du jeu
-        SceneManager.LoadScene("3DMenu 1");
+        SceneManager.LoadScene("3D Menu 1");
     }
 
     public void OpenOptions()
