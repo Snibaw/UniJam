@@ -16,6 +16,16 @@ public class GravityCube : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Player"))
         {
+            if(collision.gameObject.transform.position.y > transform.position.y)
+            {
+                cubeMode = 0;
+            }
+            else if (collision.gameObject.transform.position.y < transform.position.y)
+            {
+                cubeMode = 1;
+            }
+            
+            
             if (cubeMode==0)
             {
                 Quaternion targetRotation = Quaternion.Euler(transform.rotation.x, transform.rotation.y, 180f);
