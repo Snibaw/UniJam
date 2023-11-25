@@ -5,20 +5,24 @@ using UnityEngine.SceneManagement;
 
 public class Menu : MonoBehaviour
 {
-    public GameObject optionsPanel; // Référence au panneau d'options
+    public GameObject optionsPanel; // Rï¿½fï¿½rence au panneau d'options
+    public GameObject mainMenu;
+    private AudioManager audioManager;
 
     void Start()
     {
-        // Assurez-vous que le panneau d'options est désactivé au démarrage
+        // Assurez-vous que le panneau d'options est dï¿½sactivï¿½ au dï¿½marrage
         if (optionsPanel != null)
         {
             optionsPanel.SetActive(false);
         }
+        audioManager = FindObjectOfType<AudioManager>();
+        //if (audioManager!=null){audioManager.Play("intro");}
     }
 
     public void StartGame()
     {
-        // Charge la scène du jeu
+        // Charge la scï¿½ne du jeu
         SceneManager.LoadScene("3D Menu 1");
     }
 
@@ -28,14 +32,20 @@ public class Menu : MonoBehaviour
         if (optionsPanel != null)
         {
             optionsPanel.SetActive(true);
-            gameObject.SetActive(false);
+            mainMenu.SetActive(false);
         }
+    }
+
+    public void Back()
+    {
+        optionsPanel.SetActive(false);
+            mainMenu.SetActive(true);
     }
 
     
     public void ExitGame()
     {
-        // Quitte l'application (seulement disponible dans un build exécutable, pas dans l'éditeur Unity)
+        // Quitte l'application (seulement disponible dans un build exï¿½cutable, pas dans l'ï¿½diteur Unity)
         Application.Quit();
     }
 }

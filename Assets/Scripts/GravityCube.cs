@@ -62,7 +62,7 @@ public class GravityCube : MonoBehaviour
         while (elapsedTime < duration)
         {
             float t = elapsedTime / duration;
-            float curveValue = rotationCurve.Evaluate(t);
+            float curveValue = rotationCurve.Evaluate(t)/10;
             targetTransform.rotation = Quaternion.Slerp(targetTransform.rotation, targetRotation, curveValue);
             elapsedTime += Time.deltaTime;
             yield return null;

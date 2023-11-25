@@ -18,7 +18,8 @@ public class LoadSceneOnTrigger : MonoBehaviour
     {
         if (sceneToLoad != null)
         {
-            SceneManager.LoadScene(sceneToLoad);
+            Physics.gravity = new Vector3(0, -10.0F, 0);
+            StartCoroutine(GameObject.Find("UIPaint").GetComponent<ChangeSceneAnimation>().doAnimation("Open", sceneToLoad));
         }
         else
         {

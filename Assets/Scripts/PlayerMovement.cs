@@ -15,6 +15,8 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Shooting")]
     public ParticleSystem paintParticles;
+    public GameObject gunMat1;
+    public GameObject gunMat2;
     public List<Color> paintColors;
     public List<string> paintTypes;
     public int currentColor;
@@ -63,6 +65,10 @@ public class PlayerMovement : MonoBehaviour
 
         // Init the color of the paint to the first color in the list
         paintParticles.GetComponent<ParticleSystemRenderer>().sharedMaterial.color = paintColors[currentColor];
+        gunMat1.GetComponent<MeshRenderer>().material.color = paintColors[currentColor];
+        gunMat1.GetComponent<MeshRenderer>().material.SetColor("_EmissionColor", paintColors[currentColor]);
+        gunMat2.GetComponent<MeshRenderer>().material.color = paintColors[currentColor];
+        gunMat2.GetComponent<MeshRenderer>().material.SetColor("_EmissionColor", paintColors[currentColor]);
         GetComponentInChildren<ParticlesController>().paintColor = paintColors[currentColor];
         GetComponentInChildren<ParticlesController>().paintType = paintTypes[currentColor];
     }
@@ -260,7 +266,11 @@ public class PlayerMovement : MonoBehaviour
     public void ChangeColor()     {         
         currentColor = FindNextColor();
         
-        paintParticles.GetComponent<ParticleSystemRenderer>().sharedMaterial.color = paintColors[currentColor];         
+        paintParticles.GetComponent<ParticleSystemRenderer>().sharedMaterial.color = paintColors[currentColor];
+        gunMat1.GetComponent<MeshRenderer>().material.color = paintColors[currentColor];
+        gunMat1.GetComponent<MeshRenderer>().material.SetColor("_EmissionColor", paintColors[currentColor]);
+        gunMat2.GetComponent<MeshRenderer>().material.color = paintColors[currentColor];
+        gunMat2.GetComponent<MeshRenderer>().material.SetColor("_EmissionColor", paintColors[currentColor]);
         GetComponentInChildren<ParticlesController>().paintColor = paintColors[currentColor];     
         GetComponentInChildren<ParticlesController>().paintType = paintTypes[currentColor];
         
