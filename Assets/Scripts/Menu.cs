@@ -32,15 +32,7 @@ public class Menu : MonoBehaviour
         }
     }
 
-    public void CloseOptions()
-    {
-        // Désactive le panneau d'options
-        if (optionsPanel != null)
-        {
-            optionsPanel.SetActive(false);
-        }
-    }
-
+    
     public void ExitGame()
     {
         // Quitte l'application (seulement disponible dans un build exécutable, pas dans l'éditeur Unity)
