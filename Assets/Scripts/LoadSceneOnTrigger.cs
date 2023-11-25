@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 
 public class LoadSceneOnTrigger : MonoBehaviour
 {
-    public SceneAsset sceneToLoad; // Drag and drop the scene asset in the Inspector
+    public string sceneToLoad; // Drag and drop the scene asset in the Inspector
 
     private void OnTriggerEnter(Collider other)
     {
@@ -18,7 +18,7 @@ public class LoadSceneOnTrigger : MonoBehaviour
     {
         if (sceneToLoad != null)
         {
-            SceneManager.LoadScene(sceneToLoad.name);
+            SceneManager.LoadScene(sceneToLoad);
         }
         else
         {
