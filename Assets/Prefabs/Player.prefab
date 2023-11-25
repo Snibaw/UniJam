@@ -68,13 +68,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3201024750966983135}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.184, y: 0.318, z: 0.44}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.18400002, y: -0.113000035, z: 0.43999994}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1513331938419823990}
-  m_Father: {fileID: 3835864007598257461}
+  m_Father: {fileID: 7386882666865263741}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4438279548662932902
 GameObject:
@@ -222,6 +222,7 @@ GameObject:
   - component: {fileID: 1560651126609981670}
   - component: {fileID: 4366314623501353626}
   - component: {fileID: 1134957447149150413}
+  - component: {fileID: 6538082197015929441}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -244,7 +245,6 @@ Transform:
   m_Children:
   - {fileID: 3302670488822194218}
   - {fileID: 7386882666865263741}
-  - {fileID: 3133166471432701668}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &7374438442827699355
@@ -324,8 +324,8 @@ MonoBehaviour:
   currentColor: 0
   enabledColor: 
   uiPaint: {fileID: 0}
+  camera: {fileID: 9097917088370374093}
   speed: 8
-  sensitivity: -2
   jumpForce: 16
   jumpTime: 0.05
   jumpPreparationTime: 0.2
@@ -530,7 +530,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0.431, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 3133166471432701668}
   m_Father: {fileID: 3835864007598257461}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!20 &507731597703112131
