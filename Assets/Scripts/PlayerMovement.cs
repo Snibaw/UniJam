@@ -12,6 +12,7 @@ public class PlayerMovement : MonoBehaviour
     [Header("Shooting")]
     public ParticleSystem paintParticles;
     public List<Color> paintColors;
+    public List<string> paintTypes;
     private int currentColor = 0;
 
     [Header("Player Movement")]
@@ -50,6 +51,7 @@ public class PlayerMovement : MonoBehaviour
         // Init the color of the paint to the first color in the list
         paintParticles.GetComponent<ParticleSystemRenderer>().sharedMaterial.color = paintColors[currentColor];
         GetComponentInChildren<ParticlesController>().paintColor = paintColors[currentColor];
+        GetComponentInChildren<ParticlesController>().paintType = paintTypes[currentColor];
     }
 
     // Update is called once per frame
@@ -217,5 +219,7 @@ public class PlayerMovement : MonoBehaviour
         }         
         paintParticles.GetComponent<ParticleSystemRenderer>().sharedMaterial.color = paintColors[currentColor];         
         GetComponentInChildren<ParticlesController>().paintColor = paintColors[currentColor];     
+        GetComponentInChildren<ParticlesController>().paintType = paintTypes[currentColor];
+        Debug.Log(paintTypes[currentColor]);
         }
 }
