@@ -77,7 +77,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 1b91594f5da33ac4e9c7fd6cdea5abf1, type: 2}
+      objectReference: {fileID: 2100000, guid: 8bdf2bf326d2d7648a2737c03d370cc4, type: 2}
     - target: {fileID: 919132149155446097, guid: c62e76188de976a4e951c4afe00a3b14,
         type: 3}
       propertyPath: m_Name
@@ -100,6 +100,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 7089884498373062838}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c62e76188de976a4e951c4afe00a3b14,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8939941285662663762}
   m_SourcePrefab: {fileID: 100100000, guid: c62e76188de976a4e951c4afe00a3b14, type: 3}
 --- !u!1 &3371658797205020472 stripped
 GameObject:
@@ -155,3 +159,16 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &8939941285662663762
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3371658797205020472}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35147f2e11414a245a8c1cd440242583, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  extendsIslandOffset: 1
