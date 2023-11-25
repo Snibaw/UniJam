@@ -15,7 +15,7 @@ public class BulletBehaviour : MonoBehaviour
 
         if(other.gameObject.CompareTag("Cube"))
         {
-            Debug.Log("Cube Hit");
+            other.gameObject.GetComponent<CubeBehaviour>().cubeHit(transform.position);
             Destroy(gameObject);
         }
         else if(other.gameObject.CompareTag("Ground"))
