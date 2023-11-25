@@ -24,23 +24,19 @@ public class UIPaint : MonoBehaviour
         // Parcourir le tableau à partir de l'indice de départ
         for (int i = playerMove.currentColor + 1; i < imageHolders.Length; i++)
         {
-            print("toTransform: " + i);
             if (playerMove.enabledColor[i])
             {
                 imageHolders[j].gameObject.SetActive(true);
                 imageHolders[j].sprite = colorImages[i];
                 j += 1;
-                print("true11");
             }
         }
 
         // Si rien n'est trouvé, recommencer depuis le début du tableau
         for (int i = 0; i < playerMove.currentColor; i++)
         {
-            print("toTransform: " + i);
             if (playerMove.enabledColor[i])
             {
-                print("true00");
                 imageHolders[j].gameObject.SetActive(true);
                 imageHolders[j].sprite = colorImages[i];
                 j += 1;
