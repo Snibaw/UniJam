@@ -13988,6 +13988,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player Repair
       objectReference: {fileID: 0}
+    - target: {fileID: 3915084934905461871, guid: 2b892b06700762f40a300f4b36952bc1,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5007682049870252276, guid: 2b892b06700762f40a300f4b36952bc1,
+        type: 3}
+      propertyPath: playerCamera
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 5007682049870252276, guid: 2b892b06700762f40a300f4b36952bc1,
         type: 3}
       propertyPath: paintTypes.Array.size
