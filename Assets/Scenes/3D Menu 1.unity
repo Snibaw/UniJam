@@ -675,6 +675,21 @@ PrefabInstance:
       propertyPath: doStartAnimation
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5007682049870252276, guid: 2b892b06700762f40a300f4b36952bc1,
+        type: 3}
+      propertyPath: enabledColor.Array.data[0]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5007682049870252276, guid: 2b892b06700762f40a300f4b36952bc1,
+        type: 3}
+      propertyPath: enabledColor.Array.data[1]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5007682049870252276, guid: 2b892b06700762f40a300f4b36952bc1,
+        type: 3}
+      propertyPath: enabledColor.Array.data[2]
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7344788635123895591, guid: 2b892b06700762f40a300f4b36952bc1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1885,6 +1900,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneToLoad: Tuto
+  player: {fileID: 0}
 --- !u!1 &2065941557
 GameObject:
   m_ObjectHideFlags: 0

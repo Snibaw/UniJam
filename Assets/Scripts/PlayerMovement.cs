@@ -64,9 +64,6 @@ public class PlayerMovement : MonoBehaviour
 
     private void Awake()
     {
-        enabledColor = new bool[] { false, false, false, true };
-        
-
         currentColor = FindNextColor();
 
         // Init the color of the paint to the first color in the list

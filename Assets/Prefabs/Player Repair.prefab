@@ -502,8 +502,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1560651126609981670, guid: a47017d698443ae4f9a4ac0909f83560,
         type: 3}
+      propertyPath: enabledColor.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1560651126609981670, guid: a47017d698443ae4f9a4ac0909f83560,
+        type: 3}
       propertyPath: paintTypes.Array.data[3]
       value: None
+      objectReference: {fileID: 0}
+    - target: {fileID: 1560651126609981670, guid: a47017d698443ae4f9a4ac0909f83560,
+        type: 3}
+      propertyPath: enabledColor.Array.data[3]
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2240854069951794981, guid: a47017d698443ae4f9a4ac0909f83560,
         type: 3}
@@ -831,7 +841,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6826447606220805469, guid: a47017d698443ae4f9a4ac0909f83560,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 4129171956147610621}
+      addedObject: {fileID: 2074611136758742965}
   m_SourcePrefab: {fileID: 100100000, guid: a47017d698443ae4f9a4ac0909f83560, type: 3}
 --- !u!1 &1038711154695744847 stripped
 GameObject:
@@ -839,7 +849,7 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 5824939532914227218}
   m_PrefabAsset: {fileID: 0}
---- !u!136 &4129171956147610621
+--- !u!136 &2074611136758742965
 CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -859,7 +869,7 @@ CapsuleCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
-  m_Height: 1
+  m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &3915084934905461871 stripped
