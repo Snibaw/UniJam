@@ -226,7 +226,7 @@ PrefabInstance:
     - target: {fileID: 6826447606220805469, guid: a47017d698443ae4f9a4ac0909f83560,
         type: 3}
       propertyPath: m_Name
-      value: Player Variant
+      value: Player Repair
       objectReference: {fileID: 0}
     - target: {fileID: 7487772357813894510, guid: a47017d698443ae4f9a4ac0909f83560,
         type: 3}
@@ -337,9 +337,9 @@ MonoBehaviour:
   - {fileID: 7049890240934021137}
   - {fileID: 180120465161229053}
   colorImages:
-  - {fileID: 21300000, guid: 28de3a56346ec8b4f811f934c14e053e, type: 3}
-  - {fileID: 21300000, guid: 21d66e4816d367d4a9a1f5bd6c7b13c7, type: 3}
-  - {fileID: 21300000, guid: a74df77b71654214fa7683064dc4cd1f, type: 3}
+  - {fileID: 21300000, guid: edbfe38986f8a7646bf4a849288c6e48, type: 3}
+  - {fileID: 21300000, guid: eff2643a677d2ef44936b6f737ebf406, type: 3}
+  - {fileID: 21300000, guid: 4506f1de774ee824cb5fa2cabba9f4ba, type: 3}
   playerMove: {fileID: 5007682049870252276}
 --- !u!1 &1041945412698788314 stripped
 GameObject:
