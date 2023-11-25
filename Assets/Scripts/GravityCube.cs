@@ -8,7 +8,7 @@ public class GravityCube : MonoBehaviour
     public int cubeMode;
     private GameObject player;
     public AnimationCurve rotationCurve = AnimationCurve.EaseInOut(0f, 0f, 1f, 1f); // Courbe d'animation par défaut
-    public float rotationDuration = 1f; // Durée totale de la rotation
+    public float rotationDuration = 10f; // Durée totale de la rotation
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -62,7 +62,7 @@ public class GravityCube : MonoBehaviour
         while (elapsedTime < duration)
         {
             float t = elapsedTime / duration;
-            float curveValue = rotationCurve.Evaluate(t);
+            float curveValue = rotationCurve.Evaluate(t)/10;
             targetTransform.rotation = Quaternion.Slerp(targetTransform.rotation, targetRotation, curveValue);
             elapsedTime += Time.deltaTime;
             yield return null;
