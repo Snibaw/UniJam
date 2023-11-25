@@ -66,9 +66,13 @@ public class PlayerMovement : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    private void FixedUpdate()
     {
         Fall();
+    }
+
+    void Update()
+    {
         
         RotateThePlayer();
         if (freezeTimer > 0)
