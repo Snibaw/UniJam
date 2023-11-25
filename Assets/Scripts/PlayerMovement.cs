@@ -20,14 +20,14 @@ public class PlayerMovement : MonoBehaviour
     public float sensitivity;
     private Vector3 rotate;
 
-    public Rigidbody rb;
-    public Collider playerCollider;
+    private Rigidbody rb;
+    private Collider playerCollider;
     public float jumpForce; // Force initiale du saut
     public float jumpTime; // Temps maximal de maintien de la touche d'espace
     private float jumpTimeCounter; // Compteur de temps pour le saut
 
     private bool isJumping = false; // Indicateur pour savoir si le joueur est en train de sauter
-    public float fallGravityScale; // Gravité appliquée pendant la chute
+    public float fallGravityScale; // Gravitï¿½ appliquï¿½e pendant la chute
 
     // Start is called before the first frame update
     void Start()
@@ -35,6 +35,8 @@ public class PlayerMovement : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         bulletReloadTimer = bulletReloadTime;
         sensitivity = PlayerPrefs.GetFloat("Sensitivity", -4f);
+        rb = GetComponent<Rigidbody>();
+        playerCollider = GetComponent<Collider>();
 
         jumpTimeCounter = jumpTime;
 
@@ -58,12 +60,12 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space) && !isJumping && isGrounded)
         {
-            // Débute le saut
+            // Dï¿½bute le saut
             isJumping = true;
             rb.AddForce(Vector3.up * jumpForce * 3, ForceMode.Impulse);
         }
 
-        // Vérifie si la touche d'espace est maintenue
+        // Vï¿½rifie si la touche d'espace est maintenue
         if (Input.GetKey(KeyCode.Space) && isJumping && jumpTimeCounter > 0)
         {
             print(jumpTimeCounter);
@@ -73,13 +75,13 @@ public class PlayerMovement : MonoBehaviour
 
         }
 
-        // Vérifie si la touche d'espace est relâchée
+        // Vï¿½rifie si la touche d'espace est relï¿½chï¿½e
         if (Input.GetKeyUp(KeyCode.Space))
         {
             isJumping = false;
-            jumpTimeCounter = jumpTime; // Réinitialise le compteur de temps à la fin du saut
+            jumpTimeCounter = jumpTime; // Rï¿½initialise le compteur de temps ï¿½ la fin du saut
         }
-        // Applique une gravité plus forte pendant la chute
+        // Applique une gravitï¿½ plus forte pendant la chute
         if (rb.velocity.y < 3f)
         {
             rb.AddForce(Vector3.down * fallGravityScale, ForceMode.Acceleration);
@@ -87,7 +89,7 @@ public class PlayerMovement : MonoBehaviour
     }
     float CalculateJumpForce()
     {
-        // Calcule la force du saut en fonction du temps écoulé
+        // Calcule la force du saut en fonction du temps ï¿½coulï¿½
         if (jumpTimeCounter > 0)
         {
             return jumpForce;
