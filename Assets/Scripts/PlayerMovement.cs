@@ -30,6 +30,7 @@ public class PlayerMovement : MonoBehaviour
     private bool isJumping = false; // Indicateur pour savoir si le joueur est en train de sauter
     public float fallGravityScale; // Gravit� appliqu�e pendant la chute
 
+    public float freezeTimer;
 
     private int _xModifier = 1, _yModifier = 1;
     private float x, z;
@@ -58,6 +59,16 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         RotateThePlayer();
+        if (freezeTimer > 0)
+        {
+            canMove = false;
+            freezeTimer -= Time.deltaTime;
+
+            if (freezeTimer <= 0)
+            {
+                canMove = true;
+            }
+        }
         if (!canMove) return;
         MoveThePlayer();
         if (Input.GetMouseButtonDown(0))
@@ -104,8 +115,14 @@ public class PlayerMovement : MonoBehaviour
         {
             isJumping = false;
         }
+
+        
     }
 
+    public void FreezeMove(float freezeTime)
+    {
+
+    }
     public void ChangeControlDependingOnGravity()
     {
         if(Physics.gravity.y > 0)

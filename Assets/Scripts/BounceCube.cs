@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class BounceCube : MonoBehaviour
 {
-    [SerializeField] private float bounceForce = 10f;
+    [SerializeField] private float bounceForce;
+    [SerializeField] private float freezeTime;
 
     public bool isActive = false;
     private void OnCollisionEnter(Collision collision)
@@ -13,16 +14,22 @@ public class BounceCube : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             Rigidbody playerRb = collision.gameObject.GetComponent<Rigidbody>();
+            PlayerMovement playerMove = collision.gameObject.GetComponent<PlayerMovement>();
 
             // Assurez-vous que le joueur a un Rigidbody attaché
-            if (playerRb != null)
+            if (playerMove != null)
             {
                 // Obtenez la normale de la collision (direction du rebond)
                 Vector3 bounceDirection = collision.contacts[0].normal;
 
                 // Appliquer une force opposée à la direction de la normale
                 playerRb.AddForce(-bounceDirection * bounceForce, ForceMode.Impulse);
+
+                playerMove.freezeTimer=freezeTime;
+
             }
         }
     }
+
+    
 }

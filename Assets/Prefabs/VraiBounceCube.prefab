@@ -11,7 +11,7 @@ PrefabInstance:
     - target: {fileID: 3115601396883082473, guid: 617ac653e0fe8f545ae9daed1a07712d,
         type: 3}
       propertyPath: m_Name
-      value: BounceCube Variant
+      value: VraiBounceCube
       objectReference: {fileID: 0}
     - target: {fileID: 4071221160608555693, guid: 617ac653e0fe8f545ae9daed1a07712d,
         type: 3}
@@ -67,6 +67,11 @@ PrefabInstance:
         type: 3}
       propertyPath: isActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5658970962567605248, guid: 617ac653e0fe8f545ae9daed1a07712d,
+        type: 3}
+      propertyPath: freezeTime
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 5658970962567605248, guid: 617ac653e0fe8f545ae9daed1a07712d,
         type: 3}
