@@ -17,8 +17,11 @@ public class BounceCube : MonoBehaviour
             // Assurez-vous que le joueur a un Rigidbody attaché
             if (playerRb != null)
             {
-                // Appliquer une force vers le haut pour le rebondissement
-                playerRb.AddForce(Vector3.up * bounceForce, ForceMode.Impulse);
+                // Obtenez la normale de la collision (direction du rebond)
+                Vector3 bounceDirection = collision.contacts[0].normal;
+
+                // Appliquer une force opposée à la direction de la normale
+                playerRb.AddForce(-bounceDirection * bounceForce, ForceMode.Impulse);
             }
         }
     }
