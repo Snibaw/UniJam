@@ -78,6 +78,7 @@ public class CubeBehaviour : MonoBehaviour
                 _gravityCube.isActive = true;
                 break;
             default:
+                GetComponent<MeshRenderer>().material = cubeMaterials[3];
                 break;
         }
     }
