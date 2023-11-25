@@ -15,7 +15,7 @@ public class PlayerMovement : MonoBehaviour
     private int currentColor = 0;
 
     [Header("Player Movement")]
-    public float speed = 5f;
+    public float speed;
     public float sensitivity;
 
     private Rigidbody rb;
@@ -50,6 +50,7 @@ public class PlayerMovement : MonoBehaviour
         GetComponentInChildren<ParticlesController>().paintColor = paintColors[currentColor];
     }
 
+
     // Update is called once per frame
     void Update()
     {
@@ -74,7 +75,7 @@ public class PlayerMovement : MonoBehaviour
         bool isGrounded = Physics.Raycast(playerCollider.bounds.center, Vector3.down,
             playerCollider.bounds.extents.y + 0.01f);
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKey(KeyCode.Space))
         {
             jumpPreparationTimer = jumpPreparationTime;
         }
@@ -86,7 +87,6 @@ public class PlayerMovement : MonoBehaviour
         {
             if (jumpPreparationTimer > 0 && !isJumping)
             {
-                print("test");
                 // D�bute le saut
                 isJumping = true;
                 jumpTimeCounter = jumpTime; // R�initialise le compteur de temps � la fin du saut
@@ -94,43 +94,18 @@ public class PlayerMovement : MonoBehaviour
             }
 
         }
-
-        // V�rifie si la touche d'espace est maintenue
-        if (jumpTimeCounter > 0)
-        {
-            if (isJumping && Input.GetKey(KeyCode.Space))
-            {
-                // Continue d'appliquer une force tant que la touche est maintenue
-                rb.AddForce(Vector3.up * 10 * jumpForce * Time.deltaTime, ForceMode.Impulse);
-
-            }
-        }
-        else
+        
+        if (jumpTimeCounter <= 0)
         {
             isJumping = false;
         }
 
         // Applique une gravit� plus forte pendant la chute
-        if (rb.velocity.y < 3f)
+        if (rb.velocity.y < 5f)
         {
             rb.AddForce(Vector3.down * fallGravityScale, ForceMode.Acceleration);
         }
     }
-
-    float CalculateJumpForce()
-    {
-        // Calcule la force du saut en fonction du temps �coul�
-        if (jumpTimeCounter > 0)
-        {
-            return jumpForce;
-        }
-        else
-        {
-            return 0f;
-        }
-    }
-
-
 
     public void ChangeControlDependingOnGravity()
     {

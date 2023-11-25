@@ -139,10 +139,12 @@ MonoBehaviour:
   - {r: 1, g: 0, b: 0, a: 1}
   - {r: 0, g: 0.031513214, b: 1, a: 1}
   - {r: 0.9867345, g: 1, b: 0, a: 1}
-  speed: 8
-  sensitivity: -2
-  jumpForce: 8
-  jumpTime: 0.25
+  speed: 10
+  sensitivity: -4
+  rb: {fileID: 4366314623501353626}
+  playerCollider: {fileID: 1778613927083304563}
+  jumpForce: 10
+  jumpTime: 0.05
   jumpPreparationTime: 0.2
   fallGravityScale: 3
 --- !u!54 &4366314623501353626
