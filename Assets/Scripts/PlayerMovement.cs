@@ -46,13 +46,10 @@ public class PlayerMovement : MonoBehaviour
         jumpTimeCounter = jumpTime;
         jumpPreparationTimer = 0;
 
-<<<<<<< HEAD
         
         // Init the color of the paint to the first color in the list
         paintParticles.GetComponent<ParticleSystemRenderer>().sharedMaterial.color = paintColors[currentColor];
         GetComponentInChildren<ParticlesController>().paintColor = paintColors[currentColor];
-=======
->>>>>>> valt
     }
 
     // Update is called once per frame
@@ -111,7 +108,6 @@ public class PlayerMovement : MonoBehaviour
         if (rb.velocity.y < 3f)
         {
             rb.AddForce(Vector3.down * fallGravityScale, ForceMode.Acceleration);
-<<<<<<< HEAD
         if(Input.GetMouseButtonUp(0))
         {
             StopShooting();
@@ -119,13 +115,11 @@ public class PlayerMovement : MonoBehaviour
         if(Input.GetMouseButtonDown(1))
         {
             ChangeColor();
-=======
->>>>>>> valt
         }
     }
     float CalculateJumpForce()
     {
-        // Calcule la force du saut en fonction du temps écoulé
+        // Calcule la force du saut en fonction du temps ï¿½coulï¿½
         if (jumpTimeCounter > 0)
         {
             return jumpForce;
