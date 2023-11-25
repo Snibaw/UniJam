@@ -497,8 +497,13 @@ MonoBehaviour:
   canon: {fileID: 779105637}
   bulletPrefab: {fileID: 5464174090813262924, guid: 450cd44f9bb61ba469fca050d0463472,
     type: 3}
-  speed: 5
-  sensitivity: -1
+  speed: 8
+  sensitivity: -2
+  rb: {fileID: 1246051064}
+  playerCollider: {fileID: 1246051060}
+  jumpForce: 8
+  jumpTime: 0.25
+  fallGravityScale: 3
 --- !u!136 &1246051060
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -597,7 +602,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1246051058}
   serializedVersion: 4
-  m_Mass: 1
+  m_Mass: 5
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
