@@ -42,5 +42,14 @@ public class ParticlesController: MonoBehaviour{
         {
             c.cubeHit(paintType, transform.position);
         }
+        if(paintType == "None")
+        {
+            LigneDeCube l = other.GetComponent<LigneDeCube>();
+            if (l != null)
+            {
+                l.DeleteCubeFromChild();
+            }
+        }
+
     }
 }

@@ -80,6 +80,9 @@ public class CubeBehaviour : MonoBehaviour
                 break;
             default:
                 GetComponent<MeshRenderer>().material = cubeMaterials[3];
+                StartCoroutine(DeleteCubes());
+                _bounceCube.isActive = false;
+                _gravityCube.isActive = false;
                 break;
         }
     }
