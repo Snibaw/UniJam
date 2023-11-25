@@ -670,6 +670,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player Repair
       objectReference: {fileID: 0}
+    - target: {fileID: 2811080242406628353, guid: 2b892b06700762f40a300f4b36952bc1,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 53
+      objectReference: {fileID: 0}
+    - target: {fileID: 2811080242406628353, guid: 2b892b06700762f40a300f4b36952bc1,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -40.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4563652680809289178, guid: 2b892b06700762f40a300f4b36952bc1,
+        type: 3}
+      propertyPath: doStartAnimation
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7344788635123895591, guid: 2b892b06700762f40a300f4b36952bc1,
         type: 3}
       propertyPath: m_LocalPosition.x
