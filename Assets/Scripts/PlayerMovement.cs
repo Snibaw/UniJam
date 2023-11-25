@@ -17,6 +17,8 @@ public class PlayerMovement : MonoBehaviour
     public float speed = 5f;
     public float sensitivity = -1f;
     private Vector3 rotate;
+
+    private int _xModifier = 1, _yModifier = 1;
     // Start is called before the first frame update
     void Start()
     {
@@ -47,10 +49,24 @@ public class PlayerMovement : MonoBehaviour
             ChangeColor();
         }
     }
+
+    public void ChangeControlDependingOnGravity()
+    {
+        if(Physics.gravity.y < 0)
+        {
+            _xModifier = 1;
+            _yModifier = 1;
+        }
+        else if(Physics.gravity.y > 0)
+        {
+            _xModifier = -1;
+        }
+        
+    }
     void MoveThePlayer()
     {
-        float x = Input.GetAxisRaw("Horizontal");
-        float z = Input.GetAxisRaw("Vertical");
+        float x = Input.GetAxisRaw("Horizontal") * _xModifier;
+        float z = Input.GetAxisRaw("Vertical") * _yModifier;
 
         float yRotation = transform.eulerAngles.y;
         Vector3 move = Quaternion.Euler(0f, yRotation, 0f) * new Vector3(x, 0f, z);
