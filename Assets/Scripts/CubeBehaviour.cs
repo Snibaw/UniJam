@@ -2,19 +2,23 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.PlayerLoop;
 
 public class CubeBehaviour : MonoBehaviour
 {
     public string cubeType;
+    public Vector3 bridgeCubeDirection;
     [Header("Ligne de Cube")]
     [SerializeField] private GameObject cubePrefab;
     [SerializeField] private int maxCube = 10;
     [SerializeField] private float timeBtwSpawn = 0.03f;
     private float cubeSize;
-    [SerializeField] private bool isHit = false;
     private List<GameObject> cubeList = new List<GameObject>();
     BounceCube _bounceCube;
     BoxCollider _boxCollider;
+    [SerializeField] private float minTimeBtwStateChange = 0.2f;
+    float timeSinceLastStateChange = 0f;
+    [SerializeField] private Material[] cubeMaterials;
     
 
     private void Start()
@@ -23,24 +27,39 @@ public class CubeBehaviour : MonoBehaviour
         cubeSize = _boxCollider.size.x * transform.localScale.x;
         _bounceCube = GetComponent<BounceCube>();
         _bounceCube.enabled = false;
+
+        timeSinceLastStateChange = minTimeBtwStateChange;
+        cubeHit(cubeType, bridgeCubeDirection);
+    }
+
+
+    void Update()
+    {
+        timeSinceLastStateChange += Time.deltaTime;
     }
 
     public void cubeHit(string _cubeType = "None", Vector3 hitPosition = new Vector3())
     {
+        if(timeSinceLastStateChange < minTimeBtwStateChange) return;
+        timeSinceLastStateChange = 0f;
         cubeType = _cubeType;
+        if (cubeType != "Ligne") StartCoroutine(DeleteCubes());
+        if(cubeType != "Bounce") _bounceCube.isActive = false;
         
         switch (cubeType)
         {
+            case "Bounce":
+                GetComponent<MeshRenderer>().material = cubeMaterials[0];
+                _bounceCube.isActive = true;
+                break;
             case "Ligne":
                 //Get the normal of the hit
-                if (isHit)
+                GetComponent<MeshRenderer>().material = cubeMaterials[1];
+                if (cubeList.Count > 0)
                 {
                     StartCoroutine(DeleteCubes());
-                    isHit = false;
                     break;
                 }
-                //Is not hit
-                isHit = true;
                 RaycastHit hit;
                 if (Physics.Raycast(hitPosition, transform.position - hitPosition, out hit))
                 {
@@ -50,13 +69,14 @@ public class CubeBehaviour : MonoBehaviour
                     StartCoroutine(SpawnCubes(direction));
                 }
                 break;
-            case "Bounce":
-                _bounceCube.isActive = true;
+            case "Gravity":
+                GetComponent<MeshRenderer>().material = cubeMaterials[2];
                 break;
             default:
                 break;
         }
     }
+    
     private IEnumerator DeleteCubes()
     {
         for (int i = cubeList.Count-1; i > -1; i--)
@@ -88,6 +108,5 @@ public class CubeBehaviour : MonoBehaviour
         GameObject obj = Instantiate(cubePrefab, spawnPosition, Quaternion.identity);
         obj.transform.parent = transform.parent;
         cubeList.Add(obj);
-        
     }
 }
