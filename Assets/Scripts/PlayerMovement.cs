@@ -9,16 +9,13 @@ public class PlayerMovement : MonoBehaviour
     public bool canShoot = true;
     
 
-    [Header("Bullet")]
-
-    public float bulletReloadTime = 0.5f;
-    private float bulletReloadTimer = 0f;
-    public GameObject canon;
-    public GameObject bulletPrefab;
+    [Header("Shooting")]
+    public ParticleSystem paintParticles;
+    public List<Color> paintColors;
+    private int currentColor = 0;
 
     [Header("Player Movement")]
     public float speed = 5f;
-<<<<<<< HEAD
     public float sensitivity;
 
     public Rigidbody rb;
@@ -34,15 +31,11 @@ public class PlayerMovement : MonoBehaviour
 
 
     private int _xModifier = 1, _yModifier = 1;
-=======
-    public float sensitivity = -1f;
-    private Vector3 rotate;
->>>>>>> main
+
     // Start is called before the first frame update
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
-        bulletReloadTimer = bulletReloadTime;
         sensitivity = PlayerPrefs.GetFloat("Sensitivity", -4f);
 
         jumpTimeCounter = jumpTime;
@@ -57,20 +50,28 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        bulletReloadTimer -= Time.deltaTime;
-
         RotateThePlayer();
-        if(!canMove) return;
+        if (!canMove) return;
         MoveThePlayer();
-        if(Input.GetMouseButton(0))
+        if (Input.GetMouseButtonDown(0))
         {
-            if(bulletReloadTimer <= 0f)
-                ShootBullet();
+            StartShooting();
         }
 
-        bool isGrounded = Physics.Raycast(playerCollider.bounds.center, Vector3.down, playerCollider.bounds.extents.y + 0.01f);
+        if (Input.GetMouseButtonUp(0))
+        {
+            StopShooting();
+        }
 
-        if(Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetMouseButtonDown(1))
+        {
+            ChangeColor();
+        }
+
+        bool isGrounded = Physics.Raycast(playerCollider.bounds.center, Vector3.down,
+            playerCollider.bounds.extents.y + 0.01f);
+
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             jumpPreparationTimer = jumpPreparationTime;
         }
@@ -88,13 +89,13 @@ public class PlayerMovement : MonoBehaviour
                 jumpTimeCounter = jumpTime; // R�initialise le compteur de temps � la fin du saut
                 rb.AddForce(Vector3.up * jumpForce * 3, ForceMode.Impulse);
             }
-                           
+
         }
 
         // V�rifie si la touche d'espace est maintenue
         if (jumpTimeCounter > 0)
         {
-            if(isJumping && Input.GetKey(KeyCode.Space))
+            if (isJumping && Input.GetKey(KeyCode.Space))
             {
                 // Continue d'appliquer une force tant que la touche est maintenue
                 rb.AddForce(Vector3.up * 10 * jumpForce * Time.deltaTime, ForceMode.Impulse);
@@ -110,15 +111,9 @@ public class PlayerMovement : MonoBehaviour
         if (rb.velocity.y < 3f)
         {
             rb.AddForce(Vector3.down * fallGravityScale, ForceMode.Acceleration);
-        if(Input.GetMouseButtonUp(0))
-        {
-            StopShooting();
-        }
-        if(Input.GetMouseButtonDown(1))
-        {
-            ChangeColor();
         }
     }
+
     float CalculateJumpForce()
     {
         // Calcule la force du saut en fonction du temps �coul�
