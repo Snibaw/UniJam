@@ -36,7 +36,7 @@ public class ParticlesController: MonoBehaviour{
                 PaintManager.instance.paint(p, pos, radius, hardness, strength, paintColor);
             }
         }
-
+        
         CubeBehaviour c = other.GetComponent<CubeBehaviour>();
         if (c != null)
         {
