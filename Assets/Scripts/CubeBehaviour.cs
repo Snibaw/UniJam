@@ -84,7 +84,7 @@ public class CubeBehaviour : MonoBehaviour
         }
     }
     
-    private IEnumerator DeleteCubes()
+    public IEnumerator DeleteCubes()
     {
         for (int i = cubeList.Count-1; i > -1; i--)
         {
@@ -113,7 +113,8 @@ public class CubeBehaviour : MonoBehaviour
     private void SpawnCube(Vector3 spawnPosition)
     {
         GameObject obj = Instantiate(cubePrefab, spawnPosition, Quaternion.identity);
-        obj.transform.parent = transform.parent;
+        obj.transform.parent = transform;
+        obj.GetComponent<LigneDeCube>().cubeParent = this;
         cubeList.Add(obj);
     }
 }
