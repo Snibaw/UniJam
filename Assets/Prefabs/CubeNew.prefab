@@ -26,17 +26,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: c62e76188de976a4e951c4afe00a3b14,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.507
+      value: -2.1530585
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c62e76188de976a4e951c4afe00a3b14,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.5
+      value: 0.66
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c62e76188de976a4e951c4afe00a3b14,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2.22
+      value: -3.3930953
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c62e76188de976a4e951c4afe00a3b14,
         type: 3}
@@ -132,10 +132,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cubeType: None
-  cubePrefab: {fileID: 3371658797205020472}
+  bridgeCubeDirection: {x: 1, y: 0, z: 0}
+  cubePrefab: {fileID: 3371658797205020472, guid: 544dd0820610d3f4783a69c8bfdeb138,
+    type: 3}
   maxCube: 10
   timeBtwSpawn: 0.01
-  isHit: 0
+  minTimeBtwStateChange: 0.2
+  cubeMaterials:
+  - {fileID: 2100000, guid: e265aa74ef481da43ad8022ead2f17c8, type: 2}
+  - {fileID: 2100000, guid: 150720d93b55ab549a906ecf76f15d62, type: 2}
+  - {fileID: 2100000, guid: 23fc9f34f374a8043bbacd90ea28ce79, type: 2}
 --- !u!65 &4823856158003887323
 BoxCollider:
   m_ObjectHideFlags: 0
