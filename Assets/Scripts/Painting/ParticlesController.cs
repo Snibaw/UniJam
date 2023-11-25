@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ParticlesController: MonoBehaviour{
     public Color paintColor;
+    public string paintType;
     
     public float minRadius = 0.05f;
     public float maxRadius = 0.2f;
@@ -21,16 +22,25 @@ public class ParticlesController: MonoBehaviour{
         //paintColor = c;
     }
 
-    void OnParticleCollision(GameObject other) {
+    void OnParticleCollision(GameObject other)
+    {
         int numCollisionEvents = part.GetCollisionEvents(other, collisionEvents);
 
         Paintable p = other.GetComponent<Paintable>();
-        if(p != null){
-            for  (int i = 0; i< numCollisionEvents; i++){
+        if (p != null)
+        {
+            for (int i = 0; i < numCollisionEvents; i++)
+            {
                 Vector3 pos = collisionEvents[i].intersection;
                 float radius = Random.Range(minRadius, maxRadius);
                 PaintManager.instance.paint(p, pos, radius, hardness, strength, paintColor);
             }
+        }
+        
+        CubeBehaviour c = other.GetComponent<CubeBehaviour>();
+        if (c != null)
+        {
+            c.cubeHit(paintType, transform.position);
         }
     }
 }

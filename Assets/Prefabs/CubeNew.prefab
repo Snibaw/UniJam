@@ -26,17 +26,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: c62e76188de976a4e951c4afe00a3b14,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.507
+      value: -2.1530585
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c62e76188de976a4e951c4afe00a3b14,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.5
+      value: 0.66
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c62e76188de976a4e951c4afe00a3b14,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2.22
+      value: -3.3930953
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c62e76188de976a4e951c4afe00a3b14,
         type: 3}
@@ -77,7 +77,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 1b91594f5da33ac4e9c7fd6cdea5abf1, type: 2}
+      objectReference: {fileID: 2100000, guid: cb668e822fd59824eacf79ab811891a1, type: 2}
     - target: {fileID: 919132149155446097, guid: c62e76188de976a4e951c4afe00a3b14,
         type: 3}
       propertyPath: m_Name
@@ -108,6 +108,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 8940432639010830176}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c62e76188de976a4e951c4afe00a3b14,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7002170767955392772}
   m_SourcePrefab: {fileID: 100100000, guid: c62e76188de976a4e951c4afe00a3b14, type: 3}
 --- !u!1 &3371658797205020472 stripped
 GameObject:
@@ -128,10 +132,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cubeType: None
-  cubePrefab: {fileID: 3371658797205020472}
+  bridgeCubeDirection: {x: 1, y: 0, z: 0}
+  cubePrefab: {fileID: 3371658797205020472, guid: 544dd0820610d3f4783a69c8bfdeb138,
+    type: 3}
   maxCube: 10
   timeBtwSpawn: 0.01
-  isHit: 0
+  minTimeBtwStateChange: 0.2
+  cubeMaterials:
+  - {fileID: 2100000, guid: e265aa74ef481da43ad8022ead2f17c8, type: 2}
+  - {fileID: 2100000, guid: 150720d93b55ab549a906ecf76f15d62, type: 2}
+  - {fileID: 2100000, guid: 23fc9f34f374a8043bbacd90ea28ce79, type: 2}
 --- !u!65 &4823856158003887323
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -194,3 +204,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bounceForce: 10
   isActive: 0
+--- !u!114 &7002170767955392772
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3371658797205020472}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35147f2e11414a245a8c1cd440242583, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  extendsIslandOffset: 1

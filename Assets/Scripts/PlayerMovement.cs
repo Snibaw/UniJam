@@ -12,10 +12,11 @@ public class PlayerMovement : MonoBehaviour
     [Header("Shooting")]
     public ParticleSystem paintParticles;
     public List<Color> paintColors;
+    public List<string> paintTypes;
     private int currentColor = 0;
 
     [Header("Player Movement")]
-    public float speed;
+    public float speed = 5f;
     public float sensitivity;
 
     private Rigidbody rb;
@@ -31,6 +32,8 @@ public class PlayerMovement : MonoBehaviour
 
 
     private int _xModifier = 1, _yModifier = 1;
+    private float x, z;
+    private float xRotation, yRotation;
 
     // Start is called before the first frame update
     void Start()
@@ -42,14 +45,14 @@ public class PlayerMovement : MonoBehaviour
         jumpPreparationTimer = 0;
 
         rb = GetComponent<Rigidbody>();
-        playerCollider = GetComponent<Collider>();
+        playerCollider = GetComponent<BoxCollider>();
 
         
         // Init the color of the paint to the first color in the list
         paintParticles.GetComponent<ParticleSystemRenderer>().sharedMaterial.color = paintColors[currentColor];
         GetComponentInChildren<ParticlesController>().paintColor = paintColors[currentColor];
+        GetComponentInChildren<ParticlesController>().paintType = paintTypes[currentColor];
     }
-
 
     // Update is called once per frame
     void Update()
@@ -75,7 +78,7 @@ public class PlayerMovement : MonoBehaviour
         bool isGrounded = Physics.Raycast(playerCollider.bounds.center, Vector3.down,
             playerCollider.bounds.extents.y + 0.01f);
 
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             jumpPreparationTimer = jumpPreparationTime;
         }
@@ -87,6 +90,7 @@ public class PlayerMovement : MonoBehaviour
         {
             if (jumpPreparationTimer > 0 && !isJumping)
             {
+                //print("test");
                 // D�bute le saut
                 isJumping = true;
                 jumpTimeCounter = jumpTime; // R�initialise le compteur de temps � la fin du saut
@@ -94,39 +98,73 @@ public class PlayerMovement : MonoBehaviour
             }
 
         }
-        
-        if (jumpTimeCounter <= 0)
+
+        // V�rifie si la touche d'espace est maintenue
+        if (jumpTimeCounter > 0)
+        {
+            if (isJumping && Input.GetKey(KeyCode.Space))
+            {
+                // Continue d'appliquer une force tant que la touche est maintenue
+                rb.AddForce(Vector3.up * 10 * jumpForce * Time.deltaTime, ForceMode.Impulse);
+
+            }
+        }
+        else
         {
             isJumping = false;
         }
-
-        // Applique une gravit� plus forte pendant la chute
-        if (rb.velocity.y < 5f)
-        {
-            rb.AddForce(Vector3.down * fallGravityScale, ForceMode.Acceleration);
-        }
     }
 
+    float CalculateJumpForce()
+    {
+        // Calcule la force du saut en fonction du temps �coul�
+        if (jumpTimeCounter > 0)
+        {
+            return jumpForce;
+        }
+        else
+        {
+            return 0f;
+        }
+    }
     public void ChangeControlDependingOnGravity()
     {
-        if(Physics.gravity.y < 0)
+        if(Physics.gravity.y > 0)
         {
-            _xModifier = 1;
-            _yModifier = 1;
-        }
-        else if(Physics.gravity.y > 0)
+            x *= -1;
+        }   
+        else if(Physics.gravity.x<0)
         {
-            _xModifier = -1;
+            x*=-1;
         }
-        
+       
+    }
+    private void ChangeViewDependingOnGravity()
+    {
+        if(Physics.gravity.y > 0)
+        {
+            xRotation *= -1;
+            yRotation *= -1;
+        }
+
     }
     void MoveThePlayer()
     {
-        float x = Input.GetAxisRaw("Horizontal");
-        float z = Input.GetAxisRaw("Vertical");
+        x = Input.GetAxisRaw("Horizontal");
+        z = Input.GetAxisRaw("Vertical");
+        ChangeControlDependingOnGravity();
 
         float yRotation = transform.eulerAngles.y;
-        Vector3 move = Quaternion.Euler(0f, yRotation, 0f) * new Vector3(x, 0f, z);
+        Vector3 move;
+        if (Physics.gravity.y != 0)
+        {
+            move = Quaternion.Euler(0f, yRotation, 0f) * new Vector3(x, 0f, z);
+        }
+        else
+        {
+            move = Quaternion.Euler(0f, yRotation, 0f) * new Vector3(0f, x, z);
+        }
+        
 
         float currentSpeed = Input.GetKey(KeyCode.LeftShift) ? speed * 1.5f : speed;
 
@@ -134,10 +172,26 @@ public class PlayerMovement : MonoBehaviour
     }
     void RotateThePlayer()
     {
-        float y = Input.GetAxis("Mouse X");
-        float x = Input.GetAxis("Mouse Y");
+        yRotation = Input.GetAxis("Mouse X");
+        xRotation = Input.GetAxis("Mouse Y");
+        ChangeViewDependingOnGravity();
+
+        Vector3 rotation = new Vector3(xRotation, yRotation * sensitivity, 0f);
     
-        Vector3 rotation = new Vector3(x, y*sensitivity, 0f);
+        if (Physics.gravity.y!=0)
+        {
+            rotation = new Vector3(xRotation, yRotation * sensitivity, 0f);
+        }
+        else if (Physics.gravity.x>0)
+        {
+            rotation = new Vector3(-yRotation * sensitivity, xRotation, 0f);
+        }
+        else if (Physics.gravity.x<0)
+        {
+            rotation = new Vector3(yRotation * sensitivity, -xRotation, 0f);
+        }
+
+        
     
         transform.eulerAngles = transform.eulerAngles - rotation;
 
@@ -165,5 +219,7 @@ public class PlayerMovement : MonoBehaviour
         }         
         paintParticles.GetComponent<ParticleSystemRenderer>().sharedMaterial.color = paintColors[currentColor];         
         GetComponentInChildren<ParticlesController>().paintColor = paintColors[currentColor];     
+        GetComponentInChildren<ParticlesController>().paintType = paintTypes[currentColor];
+        Debug.Log(paintTypes[currentColor]);
         }
 }
