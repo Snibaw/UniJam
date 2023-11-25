@@ -7,6 +7,7 @@ public class Menu : MonoBehaviour
 {
     public GameObject optionsPanel; // R�f�rence au panneau d'options
     public GameObject mainMenu;
+    private AudioManager audioManager;
 
     void Start()
     {
@@ -15,6 +16,8 @@ public class Menu : MonoBehaviour
         {
             optionsPanel.SetActive(false);
         }
+        audioManager = FindObjectOfType<AudioManager>();
+        //if (audioManager!=null){audioManager.Play("intro");}
     }
 
     public void StartGame()
