@@ -18,12 +18,7 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Player Movement")]
     public float speed = 5f;
-<<<<<<< HEAD
-    public float sensitivity = -1f;
-    private Vector3 rotate;
-=======
     public float sensitivity;
->>>>>>> valt
 
     public Rigidbody rb;
     public Collider playerCollider;
@@ -36,6 +31,8 @@ public class PlayerMovement : MonoBehaviour
     private bool isJumping = false; // Indicateur pour savoir si le joueur est en train de sauter
     public float fallGravityScale; // Gravit� appliqu�e pendant la chute
 
+
+    private int _xModifier = 1, _yModifier = 1;
     // Start is called before the first frame update
     void Start()
     {
@@ -131,10 +128,24 @@ public class PlayerMovement : MonoBehaviour
     }
 
 
+
+    public void ChangeControlDependingOnGravity()
+    {
+        if(Physics.gravity.y < 0)
+        {
+            _xModifier = 1;
+            _yModifier = 1;
+        }
+        else if(Physics.gravity.y > 0)
+        {
+            _xModifier = -1;
+        }
+        
+    }
     void MoveThePlayer()
     {
-        float x = Input.GetAxisRaw("Horizontal");
-        float z = Input.GetAxisRaw("Vertical");
+        float x = Input.GetAxisRaw("Horizontal") * _xModifier;
+        float z = Input.GetAxisRaw("Vertical") * _yModifier;
 
         float yRotation = transform.eulerAngles.y;
         Vector3 move = Quaternion.Euler(0f, yRotation, 0f) * new Vector3(x, 0f, z);
@@ -162,10 +173,19 @@ public class PlayerMovement : MonoBehaviour
         transform.eulerAngles = new Vector3(currentX, transform.eulerAngles.y, transform.eulerAngles.z);
         
     }
-    void ShootBullet()
-    {
-        bulletReloadTimer = bulletReloadTime;
-        GameObject bullet = Instantiate(bulletPrefab, canon.transform.position, transform.rotation * Quaternion.Euler(90, 0, 0));
-        Destroy(bullet, 3f);
-    }
+    void StartShooting()     {         
+        paintParticles.Play();     
+        }          
+    void StopShooting()     {         
+        paintParticles.Stop();     
+        }          
+    void ChangeColor()     {         
+        currentColor++;         
+        if(currentColor >= paintColors.Count)         
+        {             
+            currentColor = 0;         
+        }         
+        paintParticles.GetComponent<ParticleSystemRenderer>().sharedMaterial.color = paintColors[currentColor];         
+        GetComponentInChildren<ParticlesController>().paintColor = paintColors[currentColor];     
+        }
 }
