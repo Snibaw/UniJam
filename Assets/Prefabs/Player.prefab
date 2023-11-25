@@ -141,8 +141,8 @@ MonoBehaviour:
   - {r: 0.9867345, g: 1, b: 0, a: 1}
   speed: 8
   sensitivity: -2
-  jumpForce: 8
-  jumpTime: 0.25
+  jumpForce: 16
+  jumpTime: 0.05
   jumpPreparationTime: 0.2
   fallGravityScale: 3
 --- !u!54 &4366314623501353626

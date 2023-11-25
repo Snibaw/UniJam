@@ -88,43 +88,22 @@ public class PlayerMovement : MonoBehaviour
         {
             if (jumpPreparationTimer > 0 && !isJumping)
             {
-                //print("test");
                 // D�bute le saut
                 isJumping = true;
                 jumpTimeCounter = jumpTime; // R�initialise le compteur de temps � la fin du saut
-                rb.AddForce(Vector3.up * jumpForce * 3, ForceMode.Impulse);
+                rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             }
 
         }
 
         // V�rifie si la touche d'espace est maintenue
-        if (jumpTimeCounter > 0)
-        {
-            if (isJumping && Input.GetKey(KeyCode.Space))
-            {
-                // Continue d'appliquer une force tant que la touche est maintenue
-                rb.AddForce(Vector3.up * 10 * jumpForce * Time.deltaTime, ForceMode.Impulse);
-
-            }
-        }
-        else
+        if (jumpTimeCounter <= 0)
+        
         {
             isJumping = false;
         }
     }
 
-    float CalculateJumpForce()
-    {
-        // Calcule la force du saut en fonction du temps �coul�
-        if (jumpTimeCounter > 0)
-        {
-            return jumpForce;
-        }
-        else
-        {
-            return 0f;
-        }
-    }
     public void ChangeControlDependingOnGravity()
     {
         if(Physics.gravity.y > 0)
