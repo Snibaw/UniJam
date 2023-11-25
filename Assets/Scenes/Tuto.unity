@@ -13819,6 +13819,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1560651126609981670, guid: a47017d698443ae4f9a4ac0909f83560,
+        type: 3}
+      propertyPath: paintTypes.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1560651126609981670, guid: a47017d698443ae4f9a4ac0909f83560,
+        type: 3}
+      propertyPath: paintTypes.Array.data[3]
+      value: None
+      objectReference: {fileID: 0}
     - target: {fileID: 3835864007598257461, guid: a47017d698443ae4f9a4ac0909f83560,
         type: 3}
       propertyPath: m_LocalPosition.x
