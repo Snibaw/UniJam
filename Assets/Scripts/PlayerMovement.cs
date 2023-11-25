@@ -18,8 +18,8 @@ public class PlayerMovement : MonoBehaviour
     public float speed;
     public float sensitivity;
 
-    public Rigidbody rb;
-    public Collider playerCollider;
+    private Rigidbody rb;
+    private Collider playerCollider;
     public float jumpForce; // Force initiale du saut
     public float jumpTime; // Temps maximal de maintien de la touche d'espace
     private float jumpTimeCounter; // Compteur de temps pour le saut
@@ -40,6 +40,9 @@ public class PlayerMovement : MonoBehaviour
 
         jumpTimeCounter = jumpTime;
         jumpPreparationTimer = 0;
+
+        rb = GetComponent<Rigidbody>();
+        playerCollider = GetComponent<Collider>();
 
         
         // Init the color of the paint to the first color in the list
