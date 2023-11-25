@@ -25,8 +25,10 @@ public class CubeBehaviour : MonoBehaviour
         _bounceCube.enabled = false;
     }
 
-    public void cubeHit(Vector3 hitPosition = new Vector3())
+    public void cubeHit(string _cubeType = "None", Vector3 hitPosition = new Vector3())
     {
+        cubeType = _cubeType;
+        
         switch (cubeType)
         {
             case "Ligne":
