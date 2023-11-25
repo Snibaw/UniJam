@@ -50,3 +50,13 @@ MonoBehaviour:
     loop: 0
     volume: 1
     source: {fileID: 0}
+  - name: shoot
+    clip: {fileID: 8300000, guid: 9e504505b2458c0419148589ed457d44, type: 3}
+    loop: 0
+    volume: 1
+    source: {fileID: 0}
+  - name: bullet collision
+    clip: {fileID: 8300000, guid: 9e504505b2458c0419148589ed457d44, type: 3}
+    loop: 0
+    volume: 1
+    source: {fileID: 0}
