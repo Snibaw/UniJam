@@ -22,7 +22,8 @@ public class PlayerMovement : MonoBehaviour
     public int currentColor;
 
     public bool[] enabledColor;
-    [SerializeField] private UIPaint uiPaint;
+    private UIPaint uiPaint;
+    private Crosshair crosshair;
     public GameObject camera;
 
     [Header("Player Movement")]
@@ -49,6 +50,9 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
+
+        uiPaint = GetComponentInChildren<UIPaint>();
+        crosshair = GetComponentInChildren<Crosshair>();
 
         jumpTimeCounter = jumpTime;
         jumpPreparationTimer = 0;
@@ -265,6 +269,7 @@ public class PlayerMovement : MonoBehaviour
         }          
     public void ChangeColor()     {         
         currentColor = FindNextColor();
+        crosshair.ChangeCrosshair(currentColor);
         
         paintParticles.GetComponent<ParticleSystemRenderer>().sharedMaterial.color = paintColors[currentColor];
         gunMat1.GetComponent<MeshRenderer>().material.color = paintColors[currentColor];
