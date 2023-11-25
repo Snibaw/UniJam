@@ -526,6 +526,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: CubeNew
       objectReference: {fileID: 0}
+    - target: {fileID: 8940432639010830176, guid: 78cc6bacdafbd504bb3dcad3c71daca1,
+        type: 3}
+      propertyPath: isActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8940432639010830176, guid: 78cc6bacdafbd504bb3dcad3c71daca1,
+        type: 3}
+      propertyPath: bounceForce
+      value: 80
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -588,6 +598,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4366314623501353626, guid: a47017d698443ae4f9a4ac0909f83560,
+        type: 3}
+      propertyPath: m_Interpolate
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4366314623501353626, guid: a47017d698443ae4f9a4ac0909f83560,
+        type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6826447606220805469, guid: a47017d698443ae4f9a4ac0909f83560,
         type: 3}
@@ -785,8 +805,8 @@ Transform:
   m_GameObject: {fileID: 3721793904666652495}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.6258, y: 1.6567, z: 8.93}
-  m_LocalScale: {x: 560.18677, y: 159.672, z: 60}
+  m_LocalPosition: {x: -1.6258, y: 1.6567, z: 9.5947}
+  m_LocalScale: {x: 560.18677, y: 159.672, z: 126.468}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
