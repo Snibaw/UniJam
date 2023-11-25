@@ -9,14 +9,21 @@ public class PlayerMovement : MonoBehaviour
     public bool canShoot = true;
     
 
-    [Header("Shooting")]
-    public ParticleSystem paintParticles;
-    public List<Color> paintColors;
-    private int currentColor = 0;
+    [Header("Bullet")]
+
+    public float bulletReloadTime = 0.5f;
+    private float bulletReloadTimer = 0f;
+    public GameObject canon;
+    public GameObject bulletPrefab;
+
     [Header("Player Movement")]
     public float speed = 5f;
+<<<<<<< HEAD
     public float sensitivity = -1f;
     private Vector3 rotate;
+=======
+    public float sensitivity;
+>>>>>>> valt
 
     public Rigidbody rb;
     public Collider playerCollider;
@@ -39,21 +46,27 @@ public class PlayerMovement : MonoBehaviour
         jumpTimeCounter = jumpTime;
         jumpPreparationTimer = 0;
 
+<<<<<<< HEAD
         
         // Init the color of the paint to the first color in the list
         paintParticles.GetComponent<ParticleSystemRenderer>().sharedMaterial.color = paintColors[currentColor];
         GetComponentInChildren<ParticlesController>().paintColor = paintColors[currentColor];
+=======
+>>>>>>> valt
     }
 
     // Update is called once per frame
     void Update()
     {
+        bulletReloadTimer -= Time.deltaTime;
+
         RotateThePlayer();
         if(!canMove) return;
         MoveThePlayer();
-        if(Input.GetMouseButtonDown(0))
+        if(Input.GetMouseButton(0))
         {
-            StartShooting();
+            if(bulletReloadTimer <= 0f)
+                ShootBullet();
         }
 
         bool isGrounded = Physics.Raycast(playerCollider.bounds.center, Vector3.down, playerCollider.bounds.extents.y + 0.01f);
@@ -98,6 +111,7 @@ public class PlayerMovement : MonoBehaviour
         if (rb.velocity.y < 3f)
         {
             rb.AddForce(Vector3.down * fallGravityScale, ForceMode.Acceleration);
+<<<<<<< HEAD
         if(Input.GetMouseButtonUp(0))
         {
             StopShooting();
@@ -105,8 +119,24 @@ public class PlayerMovement : MonoBehaviour
         if(Input.GetMouseButtonDown(1))
         {
             ChangeColor();
+=======
+>>>>>>> valt
         }
     }
+    float CalculateJumpForce()
+    {
+        // Calcule la force du saut en fonction du temps écoulé
+        if (jumpTimeCounter > 0)
+        {
+            return jumpForce;
+        }
+        else
+        {
+            return 0f;
+        }
+    }
+
+
     void MoveThePlayer()
     {
         float x = Input.GetAxisRaw("Horizontal");
@@ -138,24 +168,10 @@ public class PlayerMovement : MonoBehaviour
         transform.eulerAngles = new Vector3(currentX, transform.eulerAngles.y, transform.eulerAngles.z);
         
     }
-    void StartShooting()
+    void ShootBullet()
     {
-        paintParticles.Play();
-    }
-    
-    void StopShooting()
-    {
-        paintParticles.Stop();
-    }
-    
-    void ChangeColor()
-    {
-        currentColor++;
-        if(currentColor >= paintColors.Count)
-        {
-            currentColor = 0;
-        }
-        paintParticles.GetComponent<ParticleSystemRenderer>().sharedMaterial.color = paintColors[currentColor];
-        GetComponentInChildren<ParticlesController>().paintColor = paintColors[currentColor];
+        bulletReloadTimer = bulletReloadTime;
+        GameObject bullet = Instantiate(bulletPrefab, canon.transform.position, transform.rotation * Quaternion.Euler(90, 0, 0));
+        Destroy(bullet, 3f);
     }
 }
