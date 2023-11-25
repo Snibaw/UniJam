@@ -19,6 +19,7 @@ public class PlayerMovement : MonoBehaviour
     public int currentColor = 0;
 
     public bool[] enabledColor;
+    [SerializeField] private UIPaint uiPaint;
 
     [Header("Player Movement")]
     public float speed = 5f;
@@ -59,7 +60,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Awake()
     {
-        enabledColor = new bool[] { true, false, true, false };
+        enabledColor = new bool[] { true, true, true };
 
         // Init the color of the paint to the first color in the list
         paintParticles.GetComponent<ParticleSystemRenderer>().sharedMaterial.color = paintColors[currentColor];
@@ -259,7 +260,7 @@ public class PlayerMovement : MonoBehaviour
         GetComponentInChildren<ParticlesController>().paintColor = paintColors[currentColor];     
         GetComponentInChildren<ParticlesController>().paintType = paintTypes[currentColor];
         
-
+        uiPaint.ReorganizeSelectedColor();
 
         Debug.Log(paintTypes[currentColor]);
         }

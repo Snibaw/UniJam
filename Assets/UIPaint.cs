@@ -14,11 +14,6 @@ public class UIPaint : MonoBehaviour
         ReorganizeSelectedColor();
     }
 
-    private void Awake()
-    {
-        
-    }
-
     public void ReorganizeSelectedColor()
     {
         imageHolders[0].sprite = colorImages[playerMove.currentColor];
@@ -37,9 +32,6 @@ public class UIPaint : MonoBehaviour
                 j += 1;
                 print("true11");
             }
-            
-
-            
         }
 
         // Si rien n'est trouvé, recommencer depuis le début du tableau
