@@ -25,6 +25,8 @@ public class PlayerMovement : MonoBehaviour
     public float jumpForce; // Force initiale du saut
     public float jumpTime; // Temps maximal de maintien de la touche d'espace
     private float jumpTimeCounter; // Compteur de temps pour le saut
+    public float jumpPreparationTime; // Temps d'avance pour le saut
+    private float jumpPreparationTimer; // Temps d'avance pour le saut
 
     private bool isJumping = false; // Indicateur pour savoir si le joueur est en train de sauter
     public float fallGravityScale; // Gravité appliquée pendant la chute
@@ -37,6 +39,7 @@ public class PlayerMovement : MonoBehaviour
         sensitivity = PlayerPrefs.GetFloat("Sensitivity", -4f);
 
         jumpTimeCounter = jumpTime;
+        jumpPreparationTimer = 0;
 
     }
 
@@ -54,31 +57,44 @@ public class PlayerMovement : MonoBehaviour
                 ShootBullet();
         }
 
-        bool isGrounded = Physics.Raycast(playerCollider.bounds.center, Vector3.down, playerCollider.bounds.extents.y + 0.1f);
+        bool isGrounded = Physics.Raycast(playerCollider.bounds.center, Vector3.down, playerCollider.bounds.extents.y + 0.01f);
 
-        if (Input.GetKeyDown(KeyCode.Space) && !isJumping && isGrounded)
+        if(Input.GetKeyDown(KeyCode.Space))
         {
-            // Débute le saut
-            isJumping = true;
-            rb.AddForce(Vector3.up * jumpForce * 3, ForceMode.Impulse);
+            jumpPreparationTimer = jumpPreparationTime;
+        }
+
+        jumpPreparationTimer -= Time.deltaTime;
+        jumpTimeCounter -= Time.deltaTime;
+
+        if (isGrounded && rb.velocity.y == 0f)
+        {
+            if (jumpPreparationTimer > 0 && !isJumping)
+            {
+                print("test");
+                // Débute le saut
+                isJumping = true;
+                jumpTimeCounter = jumpTime; // Réinitialise le compteur de temps à la fin du saut
+                rb.AddForce(Vector3.up * jumpForce * 3, ForceMode.Impulse);
+            }
+                           
         }
 
         // Vérifie si la touche d'espace est maintenue
-        if (Input.GetKey(KeyCode.Space) && isJumping && jumpTimeCounter > 0)
+        if (jumpTimeCounter > 0)
         {
-            print(jumpTimeCounter);
-            // Continue d'appliquer une force tant que la touche est maintenue
-            rb.AddForce(Vector3.up * 10 * jumpForce * Time.deltaTime, ForceMode.Impulse);
-            jumpTimeCounter -= Time.deltaTime;
+            if(isJumping && Input.GetKey(KeyCode.Space))
+            {
+                // Continue d'appliquer une force tant que la touche est maintenue
+                rb.AddForce(Vector3.up * 10 * jumpForce * Time.deltaTime, ForceMode.Impulse);
 
+            }
         }
-
-        // Vérifie si la touche d'espace est relâchée
-        if (Input.GetKeyUp(KeyCode.Space))
+        else
         {
             isJumping = false;
-            jumpTimeCounter = jumpTime; // Réinitialise le compteur de temps à la fin du saut
         }
+
         // Applique une gravité plus forte pendant la chute
         if (rb.velocity.y < 3f)
         {
