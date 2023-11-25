@@ -30,25 +30,25 @@ public class GravityCube : MonoBehaviour
             {
                 Quaternion targetRotation = Quaternion.Euler(transform.rotation.x, transform.rotation.y, 180f);
                 Physics.gravity = new Vector3(0, 10.0F, 0);
-                StartCoroutine(SmoothRotate(collision.gameObject.transform, targetRotation, rotationDuration));
+                StartCoroutine(SmoothRotate(collision.gameObject.GetComponent<PlayerMovement>().camera.transform, targetRotation, rotationDuration));
             }
             else if (cubeMode==1)
             {
                 Physics.gravity = new Vector3(0, -10.0F, 0);
                 Quaternion targetRotation = Quaternion.Euler(transform.rotation.x, transform.rotation.y, 0f);
-                StartCoroutine(SmoothRotate(collision.gameObject.transform, targetRotation, rotationDuration));
+                StartCoroutine(SmoothRotate(collision.gameObject.GetComponent<PlayerMovement>().camera.transform, targetRotation, rotationDuration));
             }
             else if (cubeMode==2)
             {
                 Physics.gravity = new Vector3(10f, 0, 0);
                 Quaternion targetRotation = Quaternion.Euler(0f, 0f, 90f);
-                StartCoroutine(SmoothRotate(collision.gameObject.transform, targetRotation, rotationDuration));
+                StartCoroutine(SmoothRotate(collision.gameObject.GetComponent<PlayerMovement>().camera.transform, targetRotation, rotationDuration));
             }
             else if (cubeMode==3)
             {
                 Physics.gravity = new Vector3(-10f, 0, 0);
                 Quaternion targetRotation = Quaternion.Euler(0f, 0f, -90f);
-                StartCoroutine(SmoothRotate(collision.gameObject.transform, targetRotation, rotationDuration));
+                StartCoroutine(SmoothRotate(collision.gameObject.GetComponent<PlayerMovement>().camera.transform, targetRotation, rotationDuration));
             }
         }
     }

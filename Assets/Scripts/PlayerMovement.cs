@@ -21,10 +21,10 @@ public class PlayerMovement : MonoBehaviour
 
     public bool[] enabledColor;
     [SerializeField] private UIPaint uiPaint;
+    public GameObject camera;
 
     [Header("Player Movement")]
     public float speed = 5f;
-    public float sensitivity;
 
     private Rigidbody rb;
     private Collider playerCollider;
@@ -47,16 +47,12 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
-        sensitivity = PlayerPrefs.GetFloat("Sensitivity", -4f);
 
         jumpTimeCounter = jumpTime;
         jumpPreparationTimer = 0;
 
         rb = GetComponent<Rigidbody>();
         playerCollider = GetComponent<BoxCollider>();
-
-        
-
     }
 
     private void Awake()
@@ -70,9 +66,13 @@ public class PlayerMovement : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    private void FixedUpdate()
     {
         Fall();
+    }
+
+    void Update()
+    {
         
         RotateThePlayer();
         if (freezeTimer > 0)
@@ -204,7 +204,7 @@ public class PlayerMovement : MonoBehaviour
         z = Input.GetAxisRaw("Vertical");
         ChangeControlDependingOnGravity();
 
-        float yRotation = transform.eulerAngles.y;
+        float yRotation = camera.transform.eulerAngles.y;
         Vector3 move;
         if (Physics.gravity.y != 0)
         {
@@ -240,19 +240,16 @@ public class PlayerMovement : MonoBehaviour
         {
             rotation = new Vector3(-yRotation, -xRotation, 0f);
         }
-
-        
-    
-        transform.eulerAngles = transform.eulerAngles - rotation;
+        camera.transform.eulerAngles = camera.transform.eulerAngles - rotation;
 
         //Rotation max in x is 70 and -70
-        float currentX = transform.eulerAngles.x;
+        float currentX = camera.transform.eulerAngles.x;
         if(currentX > 180f)
         {
             currentX -= 360f;
         }
         currentX = Mathf.Clamp(currentX, -70f, 70f);
-        transform.eulerAngles = new Vector3(currentX, transform.eulerAngles.y, transform.eulerAngles.z);
+        camera.transform.eulerAngles = new Vector3(currentX, camera.transform.eulerAngles.y, camera.transform.eulerAngles.z);
         
     }
     void StartShooting()     {         
