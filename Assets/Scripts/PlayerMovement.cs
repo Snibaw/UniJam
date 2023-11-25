@@ -1,20 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Experimental.GlobalIllumination;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using static UnityEngine.Rendering.DebugUI;
+using System;
 
 public class PlayerMovement : MonoBehaviour
 {
     public bool canMove = true;
     public bool canShoot = true;
-    
+
 
     [Header("Shooting")]
     public ParticleSystem paintParticles;
     public List<Color> paintColors;
     public List<string> paintTypes;
-    private int currentColor = 0;
+    public int currentColor = 0;
+
+    public bool[] enabledColor;
 
     [Header("Player Movement")]
     public float speed = 5f;
@@ -50,6 +55,13 @@ public class PlayerMovement : MonoBehaviour
         playerCollider = GetComponent<BoxCollider>();
 
         
+
+    }
+
+    private void Awake()
+    {
+        enabledColor = new bool[] { true, false, true, false };
+
         // Init the color of the paint to the first color in the list
         paintParticles.GetComponent<ParticleSystemRenderer>().sharedMaterial.color = paintColors[currentColor];
         GetComponentInChildren<ParticlesController>().paintColor = paintColors[currentColor];
@@ -59,6 +71,8 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Fall();
+        
         RotateThePlayer();
         if (freezeTimer > 0)
         {
@@ -122,14 +136,46 @@ public class PlayerMovement : MonoBehaviour
         {
             isJumping = false;
         }
-
-        
     }
 
-    public void FreezeMove(float freezeTime)
+    private void Fall()
     {
-
+        rb.AddForce(Physics.gravity * fallGravityScale, ForceMode.Acceleration);
     }
+    
+    private int FindNextColor()
+    {
+        currentColor++;
+
+        if (currentColor >= enabledColor.Length)
+        {
+            currentColor = 0;
+        }
+
+        // Parcourir le tableau à partir de l'indice de départ
+        for (int i = currentColor; i < enabledColor.Length; i++)
+        {
+            if (enabledColor[i])
+            {
+                return i; // Retourner l'indice du prochain booléen true
+            }
+        }
+
+        // Si rien n'est trouvé, recommencer depuis le début du tableau
+        for (int i = 0; i < currentColor; i++)
+        {
+            if (enabledColor[i])
+            {
+                return i; // Retourner l'indice du prochain booléen true
+            }
+        }
+
+        // Si aucun booléen true n'est trouvé, retourner -1
+        return -1;
+    }
+
+    
+
     public void ChangeControlDependingOnGravity()
     {
         if(Physics.gravity.y > 0)
@@ -179,19 +225,19 @@ public class PlayerMovement : MonoBehaviour
         xRotation = Input.GetAxis("Mouse Y");
         ChangeViewDependingOnGravity();
 
-        Vector3 rotation = new Vector3(xRotation, yRotation * sensitivity, 0f);
+        Vector3 rotation = new Vector3(xRotation, -yRotation , 0f);
     
         if (Physics.gravity.y!=0)
         {
-            rotation = new Vector3(xRotation, yRotation * sensitivity, 0f);
+            rotation = new Vector3(xRotation, -yRotation, 0f);
         }
         else if (Physics.gravity.x>0)
         {
-            rotation = new Vector3(-yRotation * sensitivity, xRotation, 0f);
+            rotation = new Vector3(yRotation, xRotation, 0f);
         }
         else if (Physics.gravity.x<0)
         {
-            rotation = new Vector3(yRotation * sensitivity, -xRotation, 0f);
+            rotation = new Vector3(-yRotation, -xRotation, 0f);
         }
 
         
@@ -215,14 +261,14 @@ public class PlayerMovement : MonoBehaviour
         paintParticles.Stop();     
         }          
     void ChangeColor()     {         
-        currentColor++;         
-        if(currentColor >= paintColors.Count)         
-        {             
-            currentColor = 0;         
-        }         
+        currentColor = FindNextColor();
+        
         paintParticles.GetComponent<ParticleSystemRenderer>().sharedMaterial.color = paintColors[currentColor];         
         GetComponentInChildren<ParticlesController>().paintColor = paintColors[currentColor];     
         GetComponentInChildren<ParticlesController>().paintType = paintTypes[currentColor];
+        
+
+
         Debug.Log(paintTypes[currentColor]);
         }
 }

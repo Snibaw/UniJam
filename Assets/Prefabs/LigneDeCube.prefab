@@ -11,17 +11,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: c62e76188de976a4e951c4afe00a3b14,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 60
+      value: 47
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c62e76188de976a4e951c4afe00a3b14,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 60
+      value: 47
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c62e76188de976a4e951c4afe00a3b14,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 60
+      value: 47
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c62e76188de976a4e951c4afe00a3b14,
         type: 3}
@@ -77,7 +77,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 8bdf2bf326d2d7648a2737c03d370cc4, type: 2}
+      objectReference: {fileID: 2100000, guid: cb668e822fd59824eacf79ab811891a1, type: 2}
     - target: {fileID: 919132149155446097, guid: c62e76188de976a4e951c4afe00a3b14,
         type: 3}
       propertyPath: m_Name
@@ -104,6 +104,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 8939941285662663762}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c62e76188de976a4e951c4afe00a3b14,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8992200642490448776}
   m_SourcePrefab: {fileID: 100100000, guid: c62e76188de976a4e951c4afe00a3b14, type: 3}
 --- !u!1 &3371658797205020472 stripped
 GameObject:
@@ -118,7 +122,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3371658797205020472}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 8ab6f71d8e9b23e469548399b19a51e8, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -140,7 +144,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3371658797205020472}
   serializedVersion: 4
-  m_Mass: 10000
+  m_Mass: 50
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -172,3 +176,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   extendsIslandOffset: 1
+--- !u!114 &8992200642490448776
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3371658797205020472}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42650f702c231274dbdd15ebef7b53f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cubeParent: {fileID: 0}
+  cubeMaterial: {fileID: 2100000, guid: 8bdf2bf326d2d7648a2737c03d370cc4, type: 2}
