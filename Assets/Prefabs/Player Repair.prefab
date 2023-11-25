@@ -376,10 +376,12 @@ MonoBehaviour:
   - {fileID: 6664172078237899323}
   - {fileID: 7049890240934021137}
   - {fileID: 180120465161229053}
+  - {fileID: 8414966173913512217}
   colorImages:
   - {fileID: 21300000, guid: edbfe38986f8a7646bf4a849288c6e48, type: 3}
   - {fileID: 21300000, guid: eff2643a677d2ef44936b6f737ebf406, type: 3}
   - {fileID: 21300000, guid: 4506f1de774ee824cb5fa2cabba9f4ba, type: 3}
+  - {fileID: 21300000, guid: 45a971f739c4f3145a2bd254a2938b65, type: 3}
   playerMove: {fileID: 5007682049870252276}
 --- !u!1 &1041945412698788314 stripped
 GameObject:

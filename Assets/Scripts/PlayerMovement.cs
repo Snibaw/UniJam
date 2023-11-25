@@ -57,7 +57,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Awake()
     {
-        enabledColor = new bool[] { true, true, true };
+        enabledColor = new bool[] { true, true, true, true };
 
         // Init the color of the paint to the first color in the list
         paintParticles.GetComponent<ParticleSystemRenderer>().sharedMaterial.color = paintColors[currentColor];
