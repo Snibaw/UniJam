@@ -11,10 +11,13 @@ public class NewColor : MonoBehaviour
     public float floatSpeed;
     public float floatHeight;
 
+    private AudioManager audioManager;
+
     private float startY;
 
     private void OnCollisionEnter(Collision collision)
     {
+        if (audioManager!=null){audioManager.Play("pick up");}
         PlayerMovement player = collision.gameObject.GetComponent<PlayerMovement>();
         player.enabledColor[unlockedColor] = true;
         player.currentColor = unlockedColor-1;
@@ -25,6 +28,7 @@ public class NewColor : MonoBehaviour
     {
         // Stocke la position Y initiale de l'objet
         startY = transform.position.y;
+        audioManager=FindObjectOfType<AudioManager>();
     }
 
     private void Update()
