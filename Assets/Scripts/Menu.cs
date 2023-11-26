@@ -40,14 +40,12 @@ public class Menu : MonoBehaviour
         if (optionsPanel != null)
         {
             optionsPanel.SetActive(true);
-            mainMenu.SetActive(false);
         }
     }
 
     public void Back()
     {
         optionsPanel.SetActive(false);
-            mainMenu.SetActive(true);
     }
 
     
