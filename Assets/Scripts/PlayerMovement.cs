@@ -46,6 +46,7 @@ public class PlayerMovement : MonoBehaviour
     private int _xModifier = 1, _yModifier = 1;
     private float x, z;
     private float xRotation, yRotation;
+    private float timerCamera = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -85,7 +86,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        
+        timerCamera -= Time.deltaTime;
         RotateThePlayer();
         if (freezeTimer > 0)
         {
@@ -210,15 +211,22 @@ public class PlayerMovement : MonoBehaviour
         }
 
     }
+
+    void ShakeCamera()
+    {
+        if (timerCamera > 0) return;
+        timerCamera = 0.4f;
+        CameraShaker.Instance.ShakeOnce(1f, 0.1f, 0.3f, 0.3f);
+    }
     void MoveThePlayer()
     {
         x = Input.GetAxisRaw("Horizontal");
         z = Input.GetAxisRaw("Vertical");
-        
-        if(x!=0 || z!=0) CameraShaker.Instance.ShakeOnce(0.3f, 0.1f, 0.1f, 0.3f);
         ChangeControlDependingOnGravity();
 
-        float yRotation = camera.transform.eulerAngles.y;
+        if (x != 0 || z != 0) ShakeCamera();
+
+        float yRotation = camera.transform.parent.transform.eulerAngles.y;  
         Vector3 move;
         if (Physics.gravity.y != 0)
         {
