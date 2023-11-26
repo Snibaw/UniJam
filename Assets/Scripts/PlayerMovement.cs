@@ -6,6 +6,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using static UnityEngine.Rendering.DebugUI;
 using System;
+using EZCameraShake;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -213,6 +214,8 @@ public class PlayerMovement : MonoBehaviour
     {
         x = Input.GetAxisRaw("Horizontal");
         z = Input.GetAxisRaw("Vertical");
+        
+        if(x!=0 || z!=0) CameraShaker.Instance.ShakeOnce(0.3f, 0.1f, 0.1f, 0.3f);
         ChangeControlDependingOnGravity();
 
         float yRotation = camera.transform.eulerAngles.y;
@@ -233,6 +236,7 @@ public class PlayerMovement : MonoBehaviour
         yRotation = Input.GetAxis("Mouse X")* sensibility;
         xRotation = Input.GetAxis("Mouse Y")* sensibility;
         ChangeViewDependingOnGravity();
+        Transform cameraParent = camera.transform.parent;
 
         Vector3 rotation = new Vector3(xRotation, -yRotation , 0f);
     
@@ -248,16 +252,16 @@ public class PlayerMovement : MonoBehaviour
         {
             rotation = new Vector3(-yRotation, -xRotation, 0f);
         }
-        camera.transform.eulerAngles = camera.transform.eulerAngles - rotation;
+        cameraParent.transform.eulerAngles = cameraParent.transform.eulerAngles - rotation;
 
         //Rotation max in x is 70 and -70
-        float currentX = camera.transform.eulerAngles.x;
+        float currentX = cameraParent.transform.eulerAngles.x;
         if(currentX > 180f)
         {
             currentX -= 360f;
         }
         currentX = Mathf.Clamp(currentX, -70f, 70f);
-        camera.transform.eulerAngles = new Vector3(currentX, camera.transform.eulerAngles.y, camera.transform.eulerAngles.z);
+        cameraParent.transform.eulerAngles = new Vector3(currentX, camera.transform.eulerAngles.y, cameraParent.transform.eulerAngles.z);
         
     }
     void StartShooting()     {         

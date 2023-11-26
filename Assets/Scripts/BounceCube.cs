@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using EZCameraShake;
 
 public class BounceCube : MonoBehaviour
 {
@@ -26,6 +27,7 @@ public class BounceCube : MonoBehaviour
             // Assurez-vous que le joueur a un Rigidbody attach�
             if (playerMove != null)
             {
+                CameraShaker.Instance.ShakeOnce(1.2f, 0.5f, 0.1f, 1f);
                 // Bounce vers le haut
                 Vector3 bounceDirection = -Physics.gravity;
 
