@@ -871,7 +871,7 @@ PrefabInstance:
     - target: {fileID: 3444297446661593750, guid: ddf23d45449ed3c438a53fb6fdb5270b,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7.04
+      value: -4.71
       objectReference: {fileID: 0}
     - target: {fileID: 3444297446661593750, guid: ddf23d45449ed3c438a53fb6fdb5270b,
         type: 3}
@@ -881,7 +881,7 @@ PrefabInstance:
     - target: {fileID: 3444297446661593750, guid: ddf23d45449ed3c438a53fb6fdb5270b,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 4
+      value: 3.8
       objectReference: {fileID: 0}
     - target: {fileID: 3444297446661593750, guid: ddf23d45449ed3c438a53fb6fdb5270b,
         type: 3}
@@ -966,6 +966,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player Repair
       objectReference: {fileID: 0}
+    - target: {fileID: 1038711154695744847, guid: 2b892b06700762f40a300f4b36952bc1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1572211577774129368, guid: 2b892b06700762f40a300f4b36952bc1,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -976,24 +981,44 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1621871977768523306, guid: 2b892b06700762f40a300f4b36952bc1,
+    - target: {fileID: 2535147292385181174, guid: 2b892b06700762f40a300f4b36952bc1,
         type: 3}
-      propertyPath: m_text
-      value: Wait ...
+      propertyPath: m_AnchorMax.x
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1621871977768523306, guid: 2b892b06700762f40a300f4b36952bc1,
+    - target: {fileID: 2535147292385181174, guid: 2b892b06700762f40a300f4b36952bc1,
         type: 3}
-      propertyPath: m_VerticalAlignment
-      value: 4096
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1621871977768523306, guid: 2b892b06700762f40a300f4b36952bc1,
+    - target: {fileID: 4264319530411493792, guid: 2b892b06700762f40a300f4b36952bc1,
         type: 3}
-      propertyPath: m_HorizontalAlignment
-      value: 2
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4264319530411493792, guid: 2b892b06700762f40a300f4b36952bc1,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4563652680809289178, guid: 2b892b06700762f40a300f4b36952bc1,
         type: 3}
       propertyPath: doStartAnimation
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4808740990016151524, guid: 2b892b06700762f40a300f4b36952bc1,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4808740990016151524, guid: 2b892b06700762f40a300f4b36952bc1,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4808740990016151524, guid: 2b892b06700762f40a300f4b36952bc1,
+        type: 3}
+      propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5007682049870252276, guid: 2b892b06700762f40a300f4b36952bc1,
@@ -1026,10 +1051,25 @@ PrefabInstance:
       propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7066321463045199264, guid: 2b892b06700762f40a300f4b36952bc1,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7066321463045199264, guid: 2b892b06700762f40a300f4b36952bc1,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7066321463045199264, guid: 2b892b06700762f40a300f4b36952bc1,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7344788635123895591, guid: 2b892b06700762f40a300f4b36952bc1,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 5.18
       objectReference: {fileID: 0}
     - target: {fileID: 7344788635123895591, guid: 2b892b06700762f40a300f4b36952bc1,
         type: 3}
@@ -1039,12 +1079,12 @@ PrefabInstance:
     - target: {fileID: 7344788635123895591, guid: 2b892b06700762f40a300f4b36952bc1,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.97
+      value: -7.28
       objectReference: {fileID: 0}
     - target: {fileID: 7344788635123895591, guid: 2b892b06700762f40a300f4b36952bc1,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0
+      value: 0.887976
       objectReference: {fileID: 0}
     - target: {fileID: 7344788635123895591, guid: 2b892b06700762f40a300f4b36952bc1,
         type: 3}
@@ -1054,7 +1094,7 @@ PrefabInstance:
     - target: {fileID: 7344788635123895591, guid: 2b892b06700762f40a300f4b36952bc1,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -1
+      value: -0.4598899
       objectReference: {fileID: 0}
     - target: {fileID: 7344788635123895591, guid: 2b892b06700762f40a300f4b36952bc1,
         type: 3}
@@ -1069,7 +1109,7 @@ PrefabInstance:
     - target: {fileID: 7344788635123895591, guid: 2b892b06700762f40a300f4b36952bc1,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -180
+      value: -54.76
       objectReference: {fileID: 0}
     - target: {fileID: 7344788635123895591, guid: 2b892b06700762f40a300f4b36952bc1,
         type: 3}
@@ -1080,56 +1120,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7561110875795813911, guid: 2b892b06700762f40a300f4b36952bc1,
-        type: 3}
-      propertyPath: m_Pivot.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7561110875795813911, guid: 2b892b06700762f40a300f4b36952bc1,
-        type: 3}
-      propertyPath: m_Pivot.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7561110875795813911, guid: 2b892b06700762f40a300f4b36952bc1,
-        type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7561110875795813911, guid: 2b892b06700762f40a300f4b36952bc1,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7561110875795813911, guid: 2b892b06700762f40a300f4b36952bc1,
-        type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7561110875795813911, guid: 2b892b06700762f40a300f4b36952bc1,
-        type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7561110875795813911, guid: 2b892b06700762f40a300f4b36952bc1,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 449.478
-      objectReference: {fileID: 0}
-    - target: {fileID: 7561110875795813911, guid: 2b892b06700762f40a300f4b36952bc1,
-        type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 112.37
-      objectReference: {fileID: 0}
-    - target: {fileID: 7561110875795813911, guid: 2b892b06700762f40a300f4b36952bc1,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 911
-      objectReference: {fileID: 0}
-    - target: {fileID: 7561110875795813911, guid: 2b892b06700762f40a300f4b36952bc1,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -487
       objectReference: {fileID: 0}
     - target: {fileID: 8311492606795673980, guid: 2b892b06700762f40a300f4b36952bc1,
         type: 3}
@@ -1368,9 +1358,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Ombra a voler toute les couleurs du monde ! \nLe monde a besoin de vous
-    ! \nUtilisez les pouvoirs du Chroma pour recolorer le monde.\nTransformez-le
-    pour acc\xE9der aux portails et rendre au monde sa splendeur."
+  m_text: "Ombra has stolen all the colors of the world! \r\nThe world needs you!
+    \r\nUse the powers of Chroma to recolor the world.\r\nTransform it to access
+    the portals and return the world to its splendor."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8a89fa14b10d46a99122fd4f73fca9a2, type: 2}
   m_sharedMaterial: {fileID: 2140474, guid: 8a89fa14b10d46a99122fd4f73fca9a2, type: 2}
@@ -1491,16 +1481,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 873326471}
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 0, y: 0, z: -9.77}
+  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0, z: -2.06}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 1.81}
+  m_AnchoredPosition: {x: -9.18, y: 3.57}
   m_SizeDelta: {x: 9.464, y: 2.0993}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &967298323
@@ -1983,7 +1973,7 @@ PrefabInstance:
     - target: {fileID: 3444297446661593750, guid: ddf23d45449ed3c438a53fb6fdb5270b,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 3444297446661593750, guid: ddf23d45449ed3c438a53fb6fdb5270b,
         type: 3}
@@ -1993,7 +1983,7 @@ PrefabInstance:
     - target: {fileID: 3444297446661593750, guid: ddf23d45449ed3c438a53fb6fdb5270b,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 5
+      value: 5.02
       objectReference: {fileID: 0}
     - target: {fileID: 3444297446661593750, guid: ddf23d45449ed3c438a53fb6fdb5270b,
         type: 3}
@@ -2431,7 +2421,7 @@ PrefabInstance:
     - target: {fileID: 3444297446661593750, guid: ddf23d45449ed3c438a53fb6fdb5270b,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 7.11
+      value: 7.23
       objectReference: {fileID: 0}
     - target: {fileID: 3444297446661593750, guid: ddf23d45449ed3c438a53fb6fdb5270b,
         type: 3}
@@ -2441,7 +2431,7 @@ PrefabInstance:
     - target: {fileID: 3444297446661593750, guid: ddf23d45449ed3c438a53fb6fdb5270b,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 4
+      value: 5.32
       objectReference: {fileID: 0}
     - target: {fileID: 3444297446661593750, guid: ddf23d45449ed3c438a53fb6fdb5270b,
         type: 3}
