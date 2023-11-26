@@ -8,10 +8,12 @@ public class LoadSceneOnTrigger : MonoBehaviour
     public string sceneToLoad; // Drag and drop the scene asset in the Inspector
     private Transform player;
     private GameObject particleSystem;
+    private AudioManager audioManager;
 
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
+        audioManager=FindObjectOfType<AudioManager>();
     }
 
     void Update()
@@ -34,6 +36,7 @@ public class LoadSceneOnTrigger : MonoBehaviour
         if (sceneToLoad != null)
         {
             Physics.gravity = new Vector3(0, -10.0F, 0);
+            if (audioManager!=null){audioManager.Play("splash");}
             StartCoroutine(GameObject.Find("UIPaint").GetComponent<ChangeSceneAnimation>().doAnimation("Open", sceneToLoad));
         }
         else

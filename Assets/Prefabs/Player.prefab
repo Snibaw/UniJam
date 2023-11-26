@@ -69,12 +69,12 @@ Transform:
   m_GameObject: {fileID: 3201024750966983135}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.18400002, y: -0.113000035, z: 0.43999994}
+  m_LocalPosition: {x: 0.18400002, y: -0.113000035, z: 0.44000006}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1513331938419823990}
-  m_Father: {fileID: 7386882666865263741}
+  m_Father: {fileID: 7699594761804092535}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4438279548662932902
 GameObject:
@@ -164,6 +164,39 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5694558216213583491}
   m_CullTransparentMesh: 1
+--- !u!1 &6567652392884577517
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7699594761804092535}
+  m_Layer: 0
+  m_Name: MainCameraParent
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7699594761804092535
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6567652392884577517}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 7386882666865263741}
+  - {fileID: 3133166471432701668}
+  m_Father: {fileID: 3835864007598257461}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6819554233633286600
 GameObject:
   m_ObjectHideFlags: 0
@@ -243,7 +276,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3302670488822194218}
-  - {fileID: 7386882666865263741}
+  - {fileID: 7699594761804092535}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &7374438442827699355
@@ -311,6 +344,8 @@ MonoBehaviour:
   canMove: 1
   canShoot: 1
   paintParticles: {fileID: 4569232495300826337}
+  gunMat1: {fileID: 0}
+  gunMat2: {fileID: 0}
   paintColors:
   - {r: 1, g: 0, b: 0, a: 1}
   - {r: 0, g: 0.031513214, b: 1, a: 1}
@@ -322,9 +357,9 @@ MonoBehaviour:
   - Gravity
   currentColor: 0
   enabledColor: 
-  uiPaint: {fileID: 0}
   camera: {fileID: 9097917088370374093}
   speed: 8
+  sensibility: 0
   jumpForce: 16
   jumpTime: 0.05
   jumpPreparationTime: 0.2
@@ -511,12 +546,11 @@ Transform:
   m_GameObject: {fileID: 9097917088370374093}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.431, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 3133166471432701668}
-  m_Father: {fileID: 3835864007598257461}
+  m_Children: []
+  m_Father: {fileID: 7699594761804092535}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!20 &507731597703112131
 Camera:

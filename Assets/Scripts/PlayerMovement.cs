@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 using static UnityEngine.Rendering.DebugUI;
 using System;
 using UnityEngine.Rendering;
+using EZCameraShake;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -46,23 +47,27 @@ public class PlayerMovement : MonoBehaviour
     private int _xModifier = 1, _yModifier = 1;
     private float x, z;
     private float xRotation, yRotation;
+    private float timerCamera = 0;
+
+    private AudioManager audioManager;
 
     // Start is called before the first frame update
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
-
+        audioManager=FindObjectOfType<AudioManager>();
         uiPaint = GetComponentInChildren<UIPaint>();
-        crosshair = GetComponentInChildren<Crosshair>();
-        crosshair.ChangeCrosshair(currentColor);
 
         jumpTimeCounter = jumpTime;
         jumpPreparationTimer = 0;
 
-        rb = GetComponent<Rigidbody>();
+        
         playerCollider = GetComponent<BoxCollider>();
 
         sensibility = PlayerPrefs.GetFloat("sensibility");
+        
+        crosshair = GetComponentInChildren<Crosshair>();
+        rb = GetComponent<Rigidbody>();
     }
 
     private void Awake()
@@ -87,7 +92,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        
+        timerCamera -= Time.deltaTime;
         RotateThePlayer();
         if (freezeTimer > 0)
         {
@@ -153,11 +158,13 @@ public class PlayerMovement : MonoBehaviour
         }
 
         
+        
+        crosshair.ChangeCrosshair(currentColor);
     }
 
     private void Fall()
     {
-        rb.AddForce(Physics.gravity * fallGravityScale, ForceMode.Acceleration);
+        if (rb != null) rb.AddForce(Physics.gravity * fallGravityScale, ForceMode.Acceleration);
     }
     
     public int FindNextColor()
@@ -214,13 +221,22 @@ public class PlayerMovement : MonoBehaviour
         }
 
     }
+
+    void ShakeCamera()
+    {
+        if (timerCamera > 0) return;
+        timerCamera = 0.4f;
+        CameraShaker.Instance.ShakeOnce(1f, 0.1f, 0.3f, 0.3f);
+    }
     void MoveThePlayer()
     {
         x = Input.GetAxisRaw("Horizontal");
         z = Input.GetAxisRaw("Vertical");
         ChangeControlDependingOnGravity();
 
-        float yRotation = camera.transform.eulerAngles.y;
+        if (x != 0 || z != 0) ShakeCamera();
+
+        float yRotation = camera.transform.parent.transform.eulerAngles.y;  
         Vector3 move;
         if (Physics.gravity.y != 0)
         {
@@ -238,6 +254,7 @@ public class PlayerMovement : MonoBehaviour
         yRotation = Input.GetAxis("Mouse X")* sensibility;
         xRotation = Input.GetAxis("Mouse Y")* sensibility;
         ChangeViewDependingOnGravity();
+        Transform cameraParent = camera.transform.parent;
 
         Vector3 rotation = new Vector3(xRotation, -yRotation , 0f);
     
@@ -253,23 +270,25 @@ public class PlayerMovement : MonoBehaviour
         {
             rotation = new Vector3(-yRotation, -xRotation, 0f);
         }
-        camera.transform.eulerAngles = camera.transform.eulerAngles - rotation;
+        cameraParent.transform.eulerAngles = cameraParent.transform.eulerAngles - rotation;
 
         //Rotation max in x is 70 and -70
-        float currentX = camera.transform.eulerAngles.x;
+        float currentX = cameraParent.transform.eulerAngles.x;
         if(currentX > 180f)
         {
             currentX -= 360f;
         }
         currentX = Mathf.Clamp(currentX, -70f, 70f);
-        camera.transform.eulerAngles = new Vector3(currentX, camera.transform.eulerAngles.y, camera.transform.eulerAngles.z);
+        cameraParent.transform.eulerAngles = new Vector3(currentX, camera.transform.eulerAngles.y, cameraParent.transform.eulerAngles.z);
         
     }
     void StartShooting()     {         
         paintParticles.Play();     
+        if (audioManager!=null){audioManager.Play("spray");}
         }          
     void StopShooting()     {         
         paintParticles.Stop();     
+        if (audioManager!=null){audioManager.Stop("spray");}
         }          
     public void ChangeColor()     {         
         currentColor = FindNextColor();
