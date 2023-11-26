@@ -1379,7 +1379,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1942713378
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1492,6 +1492,11 @@ PrefabInstance:
       propertyPath: m_IgnoreReversedGraphics
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 344880644956924276, guid: 430f285ee4adafc47a5e910514a42e1f,
+        type: 3}
+      propertyPath: m_Value
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2415403844717982303, guid: 430f285ee4adafc47a5e910514a42e1f,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -1502,6 +1507,16 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2415403844717982303, guid: 430f285ee4adafc47a5e910514a42e1f,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 12.609984
+      objectReference: {fileID: 0}
+    - target: {fileID: 2415403844717982303, guid: 430f285ee4adafc47a5e910514a42e1f,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 1.3050232
+      objectReference: {fileID: 0}
     - target: {fileID: 4145128037716739593, guid: 430f285ee4adafc47a5e910514a42e1f,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -1511,6 +1526,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4430511143663342271, guid: 430f285ee4adafc47a5e910514a42e1f,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2.17
+      objectReference: {fileID: 0}
+    - target: {fileID: 4430511143663342271, guid: 430f285ee4adafc47a5e910514a42e1f,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2.17
+      objectReference: {fileID: 0}
+    - target: {fileID: 4430511143663342271, guid: 430f285ee4adafc47a5e910514a42e1f,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2.17
+      objectReference: {fileID: 0}
+    - target: {fileID: 4430511143663342271, guid: 430f285ee4adafc47a5e910514a42e1f,
+        type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4618317773555863629, guid: 430f285ee4adafc47a5e910514a42e1f,
         type: 3}

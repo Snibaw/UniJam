@@ -1,27 +1,16 @@
-using UnityEngine.Audio;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.Rendering;
-[System.Serializable]
+using UnityEngine.UI;
 
-public class Sound
+public class VolumeMenu : MonoBehaviour
 {
-    public new string name;
-    public AudioClip clip;
     [SerializeField] private Slider volumeSlider;
-
-    public bool loop;
-
-    [Range(0f,1f)]
-    public float volume;
-    
-
-    [HideInInspector]
-    public AudioSource source;
 
     private void Start()
     {
-        if(!PlayerPrefs.HasKey("musicVolume"))
+        if (!PlayerPrefs.HasKey("musicVolume"))
         {
             PlayerPrefs.SetFloat("musicVolume", 1);
             Load();
@@ -35,7 +24,6 @@ public class Sound
 
     public void ChangeVolume()
     {
-        volume = volumeSlider.value;
         Save();
     }
 

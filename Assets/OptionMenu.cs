@@ -58,7 +58,7 @@ public class OptionMenu : MonoBehaviour
 
     private void SaveSensibility()
     {
-        PlayerPrefs.GetFloat("sensibility", sensibilitySlider.value);
+        PlayerPrefs.SetFloat("sensibility", sensibilitySlider.value);
     }
 
     public void SwitchPause()
