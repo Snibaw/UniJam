@@ -28,18 +28,12 @@ public class LoadSceneOnTrigger : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            for (int i = 0; i < 50; i++)
-            {
-                GetComponent<ChangeCubeColors>().ChangeCubeColor();
-            }
-            StartCoroutine(LoadTargetScene());
+            LoadTargetScene();
         }
     }
 
-    private IEnumerator LoadTargetScene()
+    private void LoadTargetScene()
     {
-        yield return new WaitForSeconds(5f);
-
         if (sceneToLoad != null)
         {
             Physics.gravity = new Vector3(0, -10.0F, 0);

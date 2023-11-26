@@ -9,6 +9,7 @@ public class ChangeCubeColors : MonoBehaviour
     CubeBehaviour cubeBehaviour;
     //list of indexes of cubes that have been changed
     List<int> changedCubes = new List<int>();
+    public ParticleSystem particleSystem;
     
     private IEnumerator Start()
     {
@@ -22,6 +23,7 @@ public class ChangeCubeColors : MonoBehaviour
         cubeBehaviour = FindObjectOfType<CubeBehaviour>();
         yield return new WaitForSeconds(1.5f);
         StartCoroutine(ChangeCubeColor());
+        StartCoroutine(LoadTargetScene());
     }
 
     
@@ -34,8 +36,23 @@ public class ChangeCubeColors : MonoBehaviour
             randomIndex = UnityEngine.Random.Range(0, cubes.Count);
             randomMaterial = UnityEngine.Random.Range(0, cubeBehaviour.cubeMaterials.Length-1);
             cubes[randomIndex].GetComponent<MeshRenderer>().material = cubeBehaviour.cubeMaterials[randomMaterial];
+            //instantiate particle system
+            ParticleSystem particleSystemTemp = Instantiate(particleSystem, cubes[randomIndex].transform.position, Quaternion.identity);
+            particleSystemTemp.Play();
             cubes.RemoveAt(randomIndex);
             yield return new WaitForSeconds(0.005f);
         }
+        yield return new WaitForSeconds(10f);
+        
+        
     }
+
+
+    private IEnumerator LoadTargetScene()
+    {
+        yield return new WaitForSeconds(5f);
+        Physics.gravity = new Vector3(0, -10.0F, 0);
+        StartCoroutine(GameObject.Find("UIPaint").GetComponent<ChangeSceneAnimation>().doAnimation("Open", "Credits"));
+    }
+    
 }
