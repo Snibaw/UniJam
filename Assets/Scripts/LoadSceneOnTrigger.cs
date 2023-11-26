@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -23,7 +24,7 @@ public class LoadSceneOnTrigger : MonoBehaviour
         
     }
 
-        private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {

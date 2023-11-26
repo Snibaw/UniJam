@@ -19,7 +19,7 @@ public class CubeBehaviour : MonoBehaviour
     BoxCollider _boxCollider;
     [SerializeField] private float minTimeBtwStateChange = 0.2f;
     float timeSinceLastStateChange = 0f;
-    [SerializeField] private Material[] cubeMaterials;
+    [SerializeField] public Material[] cubeMaterials;
     private AudioManager audioManager;
 
     private IEnumerator Start()
