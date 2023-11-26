@@ -52,16 +52,16 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
-
         uiPaint = GetComponentInChildren<UIPaint>();
-        crosshair = GetComponentInChildren<Crosshair>();
-        crosshair.ChangeCrosshair(currentColor);
 
         jumpTimeCounter = jumpTime;
         jumpPreparationTimer = 0;
 
-        rb = GetComponent<Rigidbody>();
+        
         playerCollider = GetComponent<BoxCollider>();
+        
+        crosshair = GetComponentInChildren<Crosshair>();
+        rb = GetComponent<Rigidbody>();
     }
 
     private void Awake()
@@ -150,11 +150,13 @@ public class PlayerMovement : MonoBehaviour
         {
             isJumping = false;
         }
+        
+        crosshair.ChangeCrosshair(currentColor);
     }
 
     private void Fall()
     {
-        rb.AddForce(Physics.gravity * fallGravityScale, ForceMode.Acceleration);
+        if (rb != null) rb.AddForce(Physics.gravity * fallGravityScale, ForceMode.Acceleration);
     }
     
     public int FindNextColor()
