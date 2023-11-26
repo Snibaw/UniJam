@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class OptionMenu : MonoBehaviour
 {
     [SerializeField] private GameObject optionMenu;
+    [SerializeField] private GameObject mainMenu;
     [HideInInspector] public static bool pause;
     private PlayerMovement player;
 
@@ -20,7 +22,7 @@ public class OptionMenu : MonoBehaviour
         player = FindObjectOfType<PlayerMovement>();
         if (!PlayerPrefs.HasKey("sensibility"))
         {
-            PlayerPrefs.SetFloat("sensibility", 0.5f);
+            PlayerPrefs.SetFloat("sensibility", 4f);
             LoadSensibility();
 
         }
@@ -65,19 +67,38 @@ public class OptionMenu : MonoBehaviour
     {
         if (pause)
         {
-            if(player != null)
+
+            if (player != null)
             {
-                player.sensibility = 4;
+                player.sensibility = PlayerPrefs.GetFloat("sensibility"); ;
+                Cursor.lockState = CursorLockMode.Locked;
             }
             pause = false;
+            Time.timeScale = 1;
             optionMenu.SetActive(false);
 
         }
         else
         {
+            Cursor.lockState = CursorLockMode.None;
             optionMenu.SetActive(true);
-            pause = true;
+            Time.timeScale = 0;
+            pause = true; 
+
 
         }
     }
+
+    public void CloseMenu()
+    {
+        optionMenu.SetActive(false);
+    }
+    public void GoToFirstScene()
+    {
+        Time.timeScale = 1;
+        pause = false;
+        optionMenu.SetActive(false);
+        SceneManager.LoadScene(0);
+    }
+
 }

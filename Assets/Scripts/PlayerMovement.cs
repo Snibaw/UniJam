@@ -64,8 +64,8 @@ public class PlayerMovement : MonoBehaviour
         
         playerCollider = GetComponent<BoxCollider>();
 
-        sensibility = 4f;
-        
+        sensibility = PlayerPrefs.GetFloat("sensibility");
+
         crosshair = GetComponentInChildren<Crosshair>();
         rb = GetComponent<Rigidbody>();
     }
@@ -92,6 +92,10 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+        if(OptionMenu.pause)
+        {
+            return;
+        }
         timerCamera -= Time.deltaTime;
         RotateThePlayer();
         if (freezeTimer > 0)
