@@ -67,7 +67,7 @@ public class OptionMenu : MonoBehaviour
         {
             if(player != null)
             {
-                player.sensibility = sensibility;
+                player.sensibility = 4;
             }
             pause = false;
             optionMenu.SetActive(false);
