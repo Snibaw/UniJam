@@ -8,6 +8,7 @@ public class AudioManager : MonoBehaviour
     void Awake()
     {
         DontDestroyOnLoad(gameObject);
+        if (FindObjectOfType<AudioManager>()!=null){Destroy(gameObject);}
 
         foreach (Sound s in sounds)
         {
