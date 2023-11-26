@@ -3831,6 +3831,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 392953009225562886, guid: 2b892b06700762f40a300f4b36952bc1,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1038711154695744847, guid: 2b892b06700762f40a300f4b36952bc1,
         type: 3}
       propertyPath: m_Name
@@ -3874,6 +3879,11 @@ PrefabInstance:
     - target: {fileID: 4808740990016151524, guid: 2b892b06700762f40a300f4b36952bc1,
         type: 3}
       propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6249627933438309732, guid: 2b892b06700762f40a300f4b36952bc1,
+        type: 3}
+      propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7066321463045199264, guid: 2b892b06700762f40a300f4b36952bc1,
@@ -12532,6 +12542,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2702539535107589506, guid: 78cc6bacdafbd504bb3dcad3c71daca1,
     type: 3}
   m_PrefabInstance: {fileID: 534270968}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &536421747 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1038711154695744847, guid: 2b892b06700762f40a300f4b36952bc1,
+    type: 3}
+  m_PrefabInstance: {fileID: 179219395}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &537741998
 PrefabInstance:
@@ -23138,7 +23154,7 @@ PrefabInstance:
         type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 536421747}
     - target: {fileID: 6016498939921276822, guid: a17d02f86f5836b449eea357251c73d7,
         type: 3}
       propertyPath: respawnPoint
