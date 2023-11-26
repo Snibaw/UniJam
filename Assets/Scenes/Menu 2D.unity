@@ -1547,6 +1547,11 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4468527435114150647, guid: 430f285ee4adafc47a5e910514a42e1f,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 4618317773555863629, guid: 430f285ee4adafc47a5e910514a42e1f,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -1637,7 +1642,8 @@ PrefabInstance:
       propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4838189532774947392, guid: 430f285ee4adafc47a5e910514a42e1f, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

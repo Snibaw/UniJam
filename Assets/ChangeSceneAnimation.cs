@@ -8,10 +8,12 @@ public class ChangeSceneAnimation : MonoBehaviour
 {
     [SerializeField] private List<GameObject> splashs;
     [SerializeField] private Sprite[] splashSprites;
+    [SerializeField] private GameObject text;
     // Start is called before the first frame update
     public bool doStartAnimation = true;
     void Start()
     {
+        text.SetActive(false);
         if (doStartAnimation)
         {
             StartCoroutine(doAnimation("Close", null));
@@ -40,6 +42,7 @@ public class ChangeSceneAnimation : MonoBehaviour
         if (triggerName == "Open" && sceneName != null)
         {
             yield return new WaitForSeconds(0.5f);
+            text.SetActive(true);
             SceneManager.LoadScene(sceneName);
         }
         yield return new WaitForSeconds(1.5f);
