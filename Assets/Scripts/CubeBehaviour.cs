@@ -20,9 +20,11 @@ public class CubeBehaviour : MonoBehaviour
     [SerializeField] private float minTimeBtwStateChange = 0.2f;
     float timeSinceLastStateChange = 0f;
     [SerializeField] private Material[] cubeMaterials;
+    private AudioManager audioManager;
 
     private IEnumerator Start()
     {
+        audioManager=FindObjectOfType<AudioManager>();
         _boxCollider = GetComponent<BoxCollider>();
         cubeSize = _boxCollider.size.x * transform.localScale.x;
         _bounceCube = GetComponent<BounceCube>();
@@ -113,6 +115,7 @@ public class CubeBehaviour : MonoBehaviour
     }
     private void SpawnCube(Vector3 spawnPosition)
     {
+        if (audioManager!=null){audioManager.Play("bloc apparition");}
         GameObject obj = Instantiate(cubePrefab, spawnPosition, Quaternion.identity);
         obj.transform.parent = transform;
         obj.GetComponent<LigneDeCube>().cubeParent = this;
