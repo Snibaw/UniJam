@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -981,21 +981,6 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1621871977768523306, guid: 2b892b06700762f40a300f4b36952bc1,
-        type: 3}
-      propertyPath: m_text
-      value: Wait ...
-      objectReference: {fileID: 0}
-    - target: {fileID: 1621871977768523306, guid: 2b892b06700762f40a300f4b36952bc1,
-        type: 3}
-      propertyPath: m_VerticalAlignment
-      value: 4096
-      objectReference: {fileID: 0}
-    - target: {fileID: 1621871977768523306, guid: 2b892b06700762f40a300f4b36952bc1,
-        type: 3}
-      propertyPath: m_HorizontalAlignment
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 2535147292385181174, guid: 2b892b06700762f40a300f4b36952bc1,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -1135,56 +1120,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7561110875795813911, guid: 2b892b06700762f40a300f4b36952bc1,
-        type: 3}
-      propertyPath: m_Pivot.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7561110875795813911, guid: 2b892b06700762f40a300f4b36952bc1,
-        type: 3}
-      propertyPath: m_Pivot.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7561110875795813911, guid: 2b892b06700762f40a300f4b36952bc1,
-        type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7561110875795813911, guid: 2b892b06700762f40a300f4b36952bc1,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7561110875795813911, guid: 2b892b06700762f40a300f4b36952bc1,
-        type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7561110875795813911, guid: 2b892b06700762f40a300f4b36952bc1,
-        type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7561110875795813911, guid: 2b892b06700762f40a300f4b36952bc1,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 449.478
-      objectReference: {fileID: 0}
-    - target: {fileID: 7561110875795813911, guid: 2b892b06700762f40a300f4b36952bc1,
-        type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 112.37
-      objectReference: {fileID: 0}
-    - target: {fileID: 7561110875795813911, guid: 2b892b06700762f40a300f4b36952bc1,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 911
-      objectReference: {fileID: 0}
-    - target: {fileID: 7561110875795813911, guid: 2b892b06700762f40a300f4b36952bc1,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -487
       objectReference: {fileID: 0}
     - target: {fileID: 8311492606795673980, guid: 2b892b06700762f40a300f4b36952bc1,
         type: 3}
@@ -1423,9 +1358,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Ombra a vol\xE9 toute les couleurs du monde ! \nLe monde a besoin de vous
-    ! \nUtilisez les pouvoirs du Chroma pour recolorer le monde.\nTransformez-le
-    pour acc\xE9der aux portails et rendre au monde sa splendeur."
+  m_text: "Ombra has stolen all the colors of the world! \r\nThe world needs you!
+    \r\nUse the powers of Chroma to recolor the world.\r\nTransform it to access
+    the portals and return the world to its splendor."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8a89fa14b10d46a99122fd4f73fca9a2, type: 2}
   m_sharedMaterial: {fileID: 2140474, guid: 8a89fa14b10d46a99122fd4f73fca9a2, type: 2}
@@ -1452,7 +1387,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 5.2
+  m_fontSize: 5.15
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
