@@ -847,6 +847,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 2074611136758742965}
+    - targetCorrespondingSourceObject: {fileID: 9097917088370374093, guid: a47017d698443ae4f9a4ac0909f83560,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5024174847527370514}
   m_SourcePrefab: {fileID: 100100000, guid: a47017d698443ae4f9a4ac0909f83560, type: 3}
 --- !u!1 &1038711154695744847 stripped
 GameObject:
@@ -877,6 +881,28 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &3356339264013913567 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9097917088370374093, guid: a47017d698443ae4f9a4ac0909f83560,
+    type: 3}
+  m_PrefabInstance: {fileID: 5824939532914227218}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5024174847527370514
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3356339264013913567}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ab8353b5ebd32545867da143199a814, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DefaultPosInfluence: {x: 0.15, y: 0.15, z: 0.15}
+  DefaultRotInfluence: {x: 1, y: 1, z: 1}
+  RestPositionOffset: {x: 0, y: 0, z: 0}
+  RestRotationOffset: {x: 0, y: 0, z: 0}
 --- !u!4 &4182756640899066981 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7699594761804092535, guid: a47017d698443ae4f9a4ac0909f83560,
