@@ -823,7 +823,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0.5
+  m_Value: 0.855
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -1042,7 +1042,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6773200465044877204}
   - component: {fileID: 4468527435114150647}
-  - component: {fileID: 4838189532774947392}
   m_Layer: 0
   m_Name: Sound
   m_TagString: Untagged
@@ -1124,7 +1123,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4838189532774947392}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Sound, Assembly-CSharp
         m_MethodName: ChangeVolume
         m_Mode: 1
@@ -1136,24 +1135,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &4838189532774947392
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5833906239783915872}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a7a1b16799c01d0448ebf91832f0ff04, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  name: 
-  clip: {fileID: 0}
-  volumeSlider: {fileID: 4468527435114150647}
-  loop: 0
-  volume: 1
-  source: {fileID: 0}
 --- !u!1 &5991728592283973070
 GameObject:
   m_ObjectHideFlags: 0
@@ -1500,7 +1481,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8859373522883244645}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0.00001525879}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1508,8 +1489,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 10, y: 0}
+  m_AnchoredPosition: {x: -137.49998, y: -0.0000076293945}
+  m_SizeDelta: {x: -265, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3860632447370662860
 CanvasRenderer:
