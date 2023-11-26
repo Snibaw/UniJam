@@ -17,7 +17,15 @@ public class Menu : MonoBehaviour
             optionsPanel.SetActive(false);
         }
         audioManager = FindObjectOfType<AudioManager>();
-        //if (audioManager!=null){audioManager.Play("intro");}
+        if (audioManager!=null){audioManager.Play("intro");}
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            OpenOptions();
+        }
     }
 
     public void StartGame()
