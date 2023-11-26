@@ -1,3 +1,4 @@
+using System;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -5,12 +6,19 @@ using UnityEngine.SceneManagement;
 public class LoadSceneOnTrigger : MonoBehaviour
 {
     public string sceneToLoad; // Drag and drop the scene asset in the Inspector
-    public Transform player;
+    private Transform player;
+    private GameObject particleSystem;
+
+    private void Start()
+    {
+        player = GameObject.FindGameObjectWithTag("Player").transform;
+    }
 
     void Update()
     {
         // Rotate the camera every frame so it keeps looking at the target
         transform.LookAt(player);
+        
     }
 
         private void OnTriggerEnter(Collider other)
