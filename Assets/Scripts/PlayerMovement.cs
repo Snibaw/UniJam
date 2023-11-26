@@ -6,13 +6,13 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using static UnityEngine.Rendering.DebugUI;
 using System;
+using UnityEngine.Rendering;
 using EZCameraShake;
 
 public class PlayerMovement : MonoBehaviour
 {
     public bool canMove = true;
     public bool canShoot = true;
-
 
     [Header("Shooting")]
     public ParticleSystem paintParticles;
@@ -29,6 +29,7 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Player Movement")]
     public float speed = 5f;
+    [Range(0.5f, 8f)]
     public float sensibility;
     private Rigidbody rb;
     private Collider playerCollider;
@@ -62,6 +63,8 @@ public class PlayerMovement : MonoBehaviour
 
         
         playerCollider = GetComponent<BoxCollider>();
+
+        sensibility = PlayerPrefs.GetFloat("sensibility");
         
         crosshair = GetComponentInChildren<Crosshair>();
         rb = GetComponent<Rigidbody>();
@@ -153,6 +156,8 @@ public class PlayerMovement : MonoBehaviour
         {
             isJumping = false;
         }
+
+        
         
         crosshair.ChangeCrosshair(currentColor);
     }
@@ -301,4 +306,8 @@ public class PlayerMovement : MonoBehaviour
 
         Debug.Log(paintTypes[currentColor]);
         }
+
+
+    
+
 }
