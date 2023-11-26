@@ -502,7 +502,6 @@ MonoBehaviour:
   m_AtlasTextureIndex: 0
   m_IsMultiAtlasTexturesEnabled: 0
   m_ClearDynamicDataOnBuild: 1
-<<<<<<< HEAD
   m_UsedGlyphRects:
   - m_X: 0
     m_Y: 0
@@ -588,13 +587,6 @@ MonoBehaviour:
   - m_X: 711
     m_Y: 0
     m_Width: 312
-=======
-  m_UsedGlyphRects: []
-  m_FreeGlyphRects:
-  - m_X: 0
-    m_Y: 0
-    m_Width: 1023
->>>>>>> main
     m_Height: 1023
   - m_X: 594
     m_Y: 148
