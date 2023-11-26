@@ -64,7 +64,7 @@ public class PlayerMovement : MonoBehaviour
         
         playerCollider = GetComponent<BoxCollider>();
 
-        sensibility = PlayerPrefs.GetFloat("sensibility");
+        sensibility = 4f;
         
         crosshair = GetComponentInChildren<Crosshair>();
         rb = GetComponent<Rigidbody>();
