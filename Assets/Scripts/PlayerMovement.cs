@@ -48,10 +48,14 @@ public class PlayerMovement : MonoBehaviour
     private float xRotation, yRotation;
     private float timerCamera = 0;
 
+    private AudioManager audioManager;
+
     // Start is called before the first frame update
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
+
+        audioManager=FindObjectOfType<AudioManager>();
 
         uiPaint = GetComponentInChildren<UIPaint>();
         crosshair = GetComponentInChildren<Crosshair>();
@@ -274,9 +278,11 @@ public class PlayerMovement : MonoBehaviour
     }
     void StartShooting()     {         
         paintParticles.Play();     
+        if (audioManager!=null){audioManager.Play("spray");}
         }          
     void StopShooting()     {         
         paintParticles.Stop();     
+        if (audioManager!=null){audioManager.Stop("spray");}
         }          
     public void ChangeColor()     {         
         currentColor = FindNextColor();
