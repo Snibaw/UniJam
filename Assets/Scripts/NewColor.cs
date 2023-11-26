@@ -6,6 +6,7 @@ public class NewColor : MonoBehaviour
 {
     [SerializeField] private int unlockedColor;
     [SerializeField] private Transform center;
+    // [SerializeField] private ParticleSystem particle;
 
     public float rotationSpeed;
     public float floatSpeed;
@@ -22,6 +23,7 @@ public class NewColor : MonoBehaviour
         player.enabledColor[unlockedColor] = true;
         player.currentColor = unlockedColor-1;
         player.ChangeColor();
+        // particle.Play();
         Destroy(gameObject);
     }
     void Start()

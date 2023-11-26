@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -23,16 +24,22 @@ public class LoadSceneOnTrigger : MonoBehaviour
         
     }
 
-        private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            LoadTargetScene();
+            for (int i = 0; i < 50; i++)
+            {
+                GetComponent<ChangeCubeColors>().ChangeCubeColor();
+            }
+            StartCoroutine(LoadTargetScene());
         }
     }
 
-    private void LoadTargetScene()
+    private IEnumerator LoadTargetScene()
     {
+        yield return new WaitForSeconds(5f);
+
         if (sceneToLoad != null)
         {
             Physics.gravity = new Vector3(0, -10.0F, 0);
