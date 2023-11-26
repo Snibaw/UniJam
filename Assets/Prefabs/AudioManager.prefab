@@ -70,3 +70,13 @@ MonoBehaviour:
     loop: 1
     volume: 1
     source: {fileID: 0}
+  - name: bloc apparition
+    clip: {fileID: 8300000, guid: 61a304f01f986654085b5eec827ea425, type: 3}
+    loop: 0
+    volume: 1
+    source: {fileID: 0}
+  - name: pick up
+    clip: {fileID: 8300000, guid: 5a681adc5b170124584953e0dafc728c, type: 3}
+    loop: 0
+    volume: 1
+    source: {fileID: 0}
