@@ -951,15 +951,30 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 996088382736217230, guid: 2b892b06700762f40a300f4b36952bc1,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 996088382736217230, guid: 2b892b06700762f40a300f4b36952bc1,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1038711154695744847, guid: 2b892b06700762f40a300f4b36952bc1,
         type: 3}
       propertyPath: m_Name
       value: Player Repair
       objectReference: {fileID: 0}
-    - target: {fileID: 1038711154695744847, guid: 2b892b06700762f40a300f4b36952bc1,
+    - target: {fileID: 1572211577774129368, guid: 2b892b06700762f40a300f4b36952bc1,
         type: 3}
-      propertyPath: m_IsActive
-      value: 1
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1572211577774129368, guid: 2b892b06700762f40a300f4b36952bc1,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4563652680809289178, guid: 2b892b06700762f40a300f4b36952bc1,
         type: 3}
@@ -980,6 +995,21 @@ PrefabInstance:
         type: 3}
       propertyPath: enabledColor.Array.data[2]
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6120291772717705358, guid: 2b892b06700762f40a300f4b36952bc1,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6120291772717705358, guid: 2b892b06700762f40a300f4b36952bc1,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6120291772717705358, guid: 2b892b06700762f40a300f4b36952bc1,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7344788635123895591, guid: 2b892b06700762f40a300f4b36952bc1,
         type: 3}
@@ -1029,6 +1059,26 @@ PrefabInstance:
     - target: {fileID: 7344788635123895591, guid: 2b892b06700762f40a300f4b36952bc1,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7454099012637935433, guid: 2b892b06700762f40a300f4b36952bc1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8377589680527860426, guid: 2b892b06700762f40a300f4b36952bc1,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8377589680527860426, guid: 2b892b06700762f40a300f4b36952bc1,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8377589680527860426, guid: 2b892b06700762f40a300f4b36952bc1,
+        type: 3}
+      propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -2079,6 +2129,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sceneToLoad: Tuto
   m_SendPointerHoverToParent: 1
   m_HorizontalAxis: Horizontal
   m_VerticalAxis: Vertical
