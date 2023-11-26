@@ -10,6 +10,12 @@ public class GravityCube : MonoBehaviour
     private GameObject player;
     public AnimationCurve rotationCurve = AnimationCurve.EaseInOut(0f, 0f, 1f, 1f); // Courbe d'animation par défaut
     public float rotationDuration; // Durée totale de la rotation
+    private AudioManager audioManager;
+
+    void Start()
+    {
+        audioManager=FindObjectOfType<AudioManager>();
+    }
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -19,6 +25,7 @@ public class GravityCube : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             CameraShaker.Instance.ShakeOnce(2f, 0.5f, 0.1f, 1f);
+            if (audioManager!=null){audioManager.Play("gravity");}
             if(collision.gameObject.transform.position.y > transform.position.y)
             {
                 cubeMode = 0;
