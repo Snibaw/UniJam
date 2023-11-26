@@ -20,6 +20,14 @@ public class Menu : MonoBehaviour
         //if (audioManager!=null){audioManager.Play("intro");}
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            OpenOptions();
+        }
+    }
+
     public void StartGame()
     {
         // Charge la sc�ne du jeu

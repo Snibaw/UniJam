@@ -6,12 +6,12 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using static UnityEngine.Rendering.DebugUI;
 using System;
+using UnityEngine.Rendering;
 
 public class PlayerMovement : MonoBehaviour
 {
     public bool canMove = true;
     public bool canShoot = true;
-
 
     [Header("Shooting")]
     public ParticleSystem paintParticles;
@@ -28,6 +28,7 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Player Movement")]
     public float speed = 5f;
+    [Range(0.5f, 8f)]
     public float sensibility;
     private Rigidbody rb;
     private Collider playerCollider;
@@ -60,6 +61,8 @@ public class PlayerMovement : MonoBehaviour
 
         rb = GetComponent<Rigidbody>();
         playerCollider = GetComponent<BoxCollider>();
+
+        sensibility = PlayerPrefs.GetFloat("sensibility");
     }
 
     private void Awake()
@@ -148,6 +151,8 @@ public class PlayerMovement : MonoBehaviour
         {
             isJumping = false;
         }
+
+        
     }
 
     private void Fall()
@@ -282,4 +287,8 @@ public class PlayerMovement : MonoBehaviour
 
         Debug.Log(paintTypes[currentColor]);
         }
+
+
+    
+
 }

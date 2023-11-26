@@ -45,28 +45,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sounds:
-  - name: bounce
-    clip: {fileID: 8300000, guid: 9e504505b2458c0419148589ed457d44, type: 3}
-    loop: 0
-    volume: 1
-    source: {fileID: 0}
-  - name: spray
-    clip: {fileID: 8300000, guid: 71d778d8443732f469f09ba411fe400a, type: 3}
-    loop: 1
-    volume: 1
-    source: {fileID: 0}
-  - name: music1
-    clip: {fileID: 8300000, guid: 9e504505b2458c0419148589ed457d44, type: 3}
-    loop: 1
-    volume: 1
-    source: {fileID: 0}
-  - name: splash
-    clip: {fileID: 8300000, guid: f062fecb809e8b24780cc7f1feda93be, type: 3}
-    loop: 0
-    volume: 1
-    source: {fileID: 0}
-  - name: intro
-    clip: {fileID: 8300000, guid: 956e53bbf25363d459ab914e228e2f3f, type: 3}
-    loop: 1
-    volume: 1
-    source: {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
